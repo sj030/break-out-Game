@@ -8,25 +8,35 @@
 var canvas = document.getElementById("screen");
 var context = canvas.getContext("2d");
 
+
+
+
+
+
+
+
 /** function initialize() : 초기화 함수 */
 function initialize() {
-  // 너비 : 1280px, 높이 : 720px 지정
-  canvas.setAttribute("width", 1280);
-  canvas.setAttribute("height", 720);
+    // 너비 : 1280px, 높이 : 720px 지정
+    canvas.setAttribute("width", 1280);
+    canvas.setAttribute("height", 720);
 }
+
 // 실행
 initialize();
 
+
 /** function draw() : 화면 그리기 함수 */
 function draw() {
-  context.clearRect(0, 0, canvas.width, canvas.height); // 초기화
-  // ...
-  // collisionDetection();
+    context.clearRect(0, 0, canvas.width, canvas.height); // 초기화
+
+    // collisionDetection();
 }
+
 
 /** function collisionDetection(objA, objB) : 충돌 감지 함수
  * objA를 멈춰 있는 물체, objB를 움직이는 물체로 가정
  */
 function collisionDetection(objA, objB) {
-  // ...
+    // ...
 }
