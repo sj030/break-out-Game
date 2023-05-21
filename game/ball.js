@@ -6,8 +6,8 @@ class Ball {
         this.y = 500;
         this.width = 40;
         this.height = 40;
-        this.xdir = 10;
-        this.ydir = 10;
+        this.xdir = 5;
+        this.ydir = 5;
         this.ballImage = new Image();
         this.ballImage.src = imagesrc;
     }
