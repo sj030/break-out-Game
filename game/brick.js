@@ -90,19 +90,19 @@ class Brick {
     constructor(ctx, Lx, Ly) {
         //Lx, Ly는 배열의 인덱스 번호 array[i][j]
         //이하 내용은 constant.js에 들어가는 것도 적합해 보임
-        this.brickWidth = 150;
+        
         this.brickHeight = 50;
         this.brickPadding = 20;
         this.brickOffsetTop = 30;
-        this.brickOffsetLeft = 30;
+        this.brickOffsetOneSide = 30;
         this.image = new Image();
         this.image.src = "../webP/images/brick_origin.png";
-
+	this.brickWidth = ((canvas.width - (this.brickOffsetOneSide * 2)) / 7) - this.brickPadding;
         //멤버 변수
         this.ctx = ctx;
         this.life = true;
         this.brickX =
-            Lx * (this.brickWidth + this.brickPadding) + this.brickOffsetLeft;
+            Lx * (this.brickWidth + this.brickPadding) + this.brickOffsetOneSide;
         this.brickY =
             Ly * (this.brickHeight + this.brickPadding) + this.brickOffsetTop;
     }
