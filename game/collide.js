@@ -26,12 +26,12 @@ function collisionDetectionPaddle(ball, paddle) {
 
         
         if(ball.x+20 < paddle.paddleX+81){
-            var diff = ((paddle.paddleX+81) - (ball.x+20))/4;
+            var diff = ((paddle.paddleX+81) - (ball.x+20))/8;
             ball.xdir = -diff;
         }
 
         if(ball.x+20 > paddle.paddleX+81){
-            var diff = ((ball.x+20) - (paddle.paddleX+81))/4;
+            var diff = ((ball.x+20) - (paddle.paddleX+81))/8;
             ball.xdir = diff;
         }
         ball.ydir *= -1;
