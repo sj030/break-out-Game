@@ -24,16 +24,24 @@ function collisionDetectionPaddle(ball, paddle) {
         ball.y < canvas.height
     ) {
 
-        
+
+        //공, 패들 collision 알고리즘
+
+        /*공의 x좌표가 패들의 x좌표보다 작을때 공의 속도는 각 x좌표의
+        차이값*(-1/8)이 된다.*/
         if(ball.x+20 < paddle.paddleX+81){
             var diff = ((paddle.paddleX+81) - (ball.x+20))/8;
             ball.xdir = -diff;
         }
-
+        
+        /*공의 x좌표가 패들의 x좌표보다 클때 공의 속도는 각 x좌표의
+        차이값*(1/8)이 된다.*/
         if(ball.x+20 > paddle.paddleX+81){
             var diff = ((ball.x+20) - (paddle.paddleX+81))/8;
             ball.xdir = diff;
         }
+
+
         ball.ydir *= -1;
         bounceAble = false;
     }
