@@ -6,6 +6,9 @@
 
 let bounceAble = true;
 
+
+var ballx = ball.x + (ball.width/2);
+
 function collisionDetectionPaddle(ball, paddle) {
     if (!bounceAble) {
         bounceAble =
@@ -20,19 +23,31 @@ function collisionDetectionPaddle(ball, paddle) {
         ball.y + ball.height > canvas.height - paddle.img.height &&
         ball.y < canvas.height
     ) {
+
+        
+        if(ball.x+20 < paddle.paddleX+81){
+            var diff = ((paddle.paddleX+81) - (ball.x+20))/4;
+            ball.xdir = -diff;
+        }
+
+        if(ball.x+20 > paddle.paddleX+81){
+            var diff = ((ball.x+20) - (paddle.paddleX+81))/4;
+            ball.xdir = diff;
+        }
         ball.ydir *= -1;
         bounceAble = false;
     }
     // x축 방향 튕김 (사실상 필요없을 듯)
-    if (
-        ball.x + ball.width > paddle.x &&
-        ball.x < paddle.x + paddle.width &&
-        ball.y + ball.height + ball.ydir > paddle.y &&
-        ball.y + ball.ydir < paddle.y + paddle.height
-    ) {
-        ball.xdir *= -1;
-        bounceAble = false;
-    }
+    // if (
+    //     ball.x + ball.width > paddle.x &&
+    //     ball.x < paddle.x + paddle.width &&
+    //     ball.y + ball.height + ball.ydir > paddle.y &&
+    //     ball.y + ball.ydir < paddle.y + paddle.height
+    // ) {
+    //     ball.xdir *= -1;
+    //     bounceAble = false;
+    // }
+
 }
 
 function collisionDetectionBrick(ball) {
