@@ -35,8 +35,8 @@ class stageBrick {
         /*
 			가져온 스테이지 정보에 맞게, 멤버 변수를 구성합니다. 1이면 일반 벽돌, 2이면 아이템 벽돌, 0이면 공백입니다. 
 		*/
-        for (var i = 0; i < info.length; i++) {
-            for (var j = 0; j < info[i].length; j++) {
+        for (let i = 0; i < info.length; i++) {
+            for (let j = 0; j < info[i].length; j++) {
                 if (info[i][j] == 1) {
                     this.currentBrickComposition[i][j] = new Brick(
                         this.ctx,
@@ -57,18 +57,22 @@ class stageBrick {
     }
 
     drawStageBrick() {
+        // 그릴 벽돌이 없으면 게임 클리어로 처리합니다.
+        let isGameClear = true;
         //멤버 변수인 currentBrickComposition 배열에 맞게 블럭을 그립니다.
-        for (var i = 0; i < this.currentBrickComposition.length; i++) {
-            for (var j = 0; j < this.currentBrickComposition[i].length; j++) {
+        for (let i = 0; i < this.currentBrickComposition.length; i++) {
+            for (let j = 0; j < this.currentBrickComposition[i].length; j++) {
                 // null인 경우, 이미 충돌된 경우 continue;
                 if (
                     this.currentBrickComposition[i][j] != null &&
                     this.currentBrickComposition[i][j].life == true
                 ) {
                     this.currentBrickComposition[i][j].draw(); // itemBrick클래스는 Brick을 상속합니다.
+                    isGameClear = false; // 벽돌을 하나라도 그렸으면 게임 진행 중입니다.
                 }
             }
         }
+        if (isGameClear) game.isCleared = true;
     }
 }
 
@@ -82,7 +86,7 @@ Date: 2023.05.19
 		생성자 함수/ (ctx, x 좌표, y 좌표)
 		init함수/ 초기에 한 번 실행됩니다. 
 		drawBrick() 함수/ stageBrick클래스에서 호출됩니다. 
-		setLife() 함수/ main.js에서 collision발생 시 호출됩니다. 반대로 바꿉니다. 
+		setLife() 함수/ main.js에서 collision발생 시 호출됩니다. false로 바꿉니다. 
 		getLife() 함수/ 멤버 변수 life의 getter 함수입니다. 
 */
 
@@ -90,19 +94,22 @@ class Brick {
     constructor(ctx, Lx, Ly) {
         //Lx, Ly는 배열의 인덱스 번호 array[i][j]
         //이하 내용은 constant.js에 들어가는 것도 적합해 보임
-        
+
         this.brickHeight = 50;
         this.brickPadding = 20;
         this.brickOffsetTop = 30;
         this.brickOffsetOneSide = 45;
         this.image = new Image();
         this.image.src = "../webP/images/brick_origin.png";
-	this.brickWidth = ((canvas.width - (this.brickOffsetOneSide * 2)) / 7) - this.brickPadding;
+        this.brickWidth =
+            (canvas.width - this.brickOffsetOneSide * 2) / 7 -
+            this.brickPadding;
         //멤버 변수
         this.ctx = ctx;
         this.life = true;
         this.brickX =
-            Lx * (this.brickWidth + this.brickPadding) + this.brickOffsetOneSide;
+            Lx * (this.brickWidth + this.brickPadding) +
+            this.brickOffsetOneSide;
         this.brickY =
             Ly * (this.brickHeight + this.brickPadding) + this.brickOffsetTop;
     }
@@ -115,9 +122,12 @@ class Brick {
             this.brickHeight
         );
     }
-    //setter 함수 (역)
+    //setter 함수
     setLife() {
-        this.life = !this.life;
+        if (this.life) {
+            this.life = false;
+            game.score += 100;
+        }
     }
 
     //getter 함수

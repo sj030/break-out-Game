@@ -1,4 +1,12 @@
 /* 임시 작성 */
+@font-face {
+    font-family: "PFStardust";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;

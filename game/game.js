@@ -4,8 +4,8 @@
  */
 "use strict";
 
-/** function init() : 초기화 함수 */
-function init() {
+/** function gameInit() : 게임 내부 초기화 함수 */
+function gameInit() {
     // 너비 : 1280px, 높이 : 720px 지정
     canvas.setAttribute("width", 1280);
     canvas.setAttribute("height", 720);
@@ -15,29 +15,41 @@ function init() {
     // canvas.setAttribute("height", window.innerHeight);
 
     // 이벤트 리스너
-    // window.addEventListener("resize", resizeHandler);
     document.addEventListener("mousemove", mouseMoveHandler, false);
     document.addEventListener("keydown", keyDownHandler, false);
-    // init
+
+    // 스테이지별 init
     paddle.init();
     stage.init();
+    ball.init();
+    game.timeLeft = 180;
+    game.isCleared = false;
+    game.isOver = false;
+    game.isPaused = false;
+    game.lifeLeft = 3;
+    game.score = 0;
 }
 
-const stage = new stageBrick(context, 0);
-const paddle = new Paddle(context);
-const ball = new Ball("./images/fireball.png");
-
-/** function draw() : 화면 그리기 함수 */
-function draw() {
+/** function gameDraw() : 게임 내부 화면 그리기 함수 */
+function gameDraw() {
     if (game.isPaused && gamePauseScene()) return; // 일시정지
-    context.clearRect(0, 0, canvas.width, canvas.height); // 초기화
+    if (game.isCleared && stageClearScene()) return; // 스테이지 클리어
+    if (game.isOver && gameOverScene()) return; // 게임오버
 
+    // 화면 초기화
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 요소 그리기
     stage.drawStageBrick();
-    paddle.draw(context);
+    paddle.drawPaddle(context);
     ball.run();
+
+    // 충돌 감지
     collisionDetectionPaddle(ball, paddle);
     collisionDetectionBrick(ball);
-    interval = requestAnimationFrame(draw);
+
+    // 반복 실행
+    interval = requestAnimationFrame(gameDraw);
 }
 
 /** function keyDownHandler(e) : 키보드 입력 Event Handler */
@@ -48,11 +60,11 @@ function keyDownHandler(e) {
     }
 }
 
-function resizeHandler() {
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
-}
+// 요소 생성
+const stage = new stageBrick(context, 0);
+const paddle = new Paddle(context);
+const ball = new Ball("./images/ball.png");
 
 // 실행
-init();
-interval = requestAnimationFrame(draw);
+gameInit();
+gameDraw();

@@ -20,17 +20,9 @@ class Paddle {
         //스테이지 변경이 되면 imgarridx가 바뀌어야 함.
         this.img.src = this.paddleimgarr[this.imgarridx];
     }
-    draw() {
-        context.drawImage(
-            this.img,
-            this.paddleX,
-            canvas.height - this.height,
-            this.width,
-            this.height
-        );
-    }
+
     drawPaddle() {
-        context.drawImage(img, this.paddleX, canvas.height - this.height);
+        context.drawImage(this.img, this.paddleX, canvas.height - this.height);
     }
 
     getWidth() {

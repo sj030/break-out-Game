@@ -36,14 +36,6 @@ function playEffect(ctx, target, time) {
     target.timeVar = 0;
 }
 
-/** function openingScene() : 오프닝 화면 */
-function openingScene() {
-    // ! TODO
-}
-
-/** function startScene() : 게임 시작 화면 */
-function startScene() {}
-
 /** function gamePauseScene() : 일시정지 화면 */
 function gamePauseScene() {
     context.font = "20pt Arial";
@@ -51,4 +43,12 @@ function gamePauseScene() {
     context.fillText("일시정지됨", canvas.width / 2, canvas.height / 2);
     cancelAnimationFrame(interval);
     return true;
+}
+
+/** function ballOutScene() : 공 떨어졌을 때 처리 */
+function ballOutScene() {
+    cancelAnimationFrame(interval);
+    ball.init();
+    ball.speed = 5;
+    if (--game.lifeLeft <= 0) game.isOver = true;
 }
