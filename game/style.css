@@ -28,6 +28,7 @@ div#startPage{
 }
 div#opening{
     margin: 0 auto;
+    background-color: white;
     display: none;
     width: 1280px;
     height: 920px;
@@ -40,17 +41,19 @@ div#content{
 }
 div#gameOver{
     margin: 0 auto;
+    background-color: white;
     display: none;
     width: 1280px;
     height: 920px;
 }
 div#gameClear{
     margin: 0 auto;
+    background-color: white;
     display: none;
     width: 1280px;
     height: 920px;
 }
-#tutorial{
+#introducePage{
     display: none;
 }
 /* changed */
