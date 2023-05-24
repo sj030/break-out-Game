@@ -8,6 +8,7 @@
 }
 
 * {
+    font-family: "PFStardust";
     margin: 0;
     padding: 0;
 }
@@ -15,9 +16,54 @@
 body {
     background-color: lightgray;
     text-align: center;
-    overflow: hidden;
+}
+
+div#top {
+    position: relative;
+    width: 1280px;
+    height: 100px;
+    background-color: black;
+    margin: 0 auto;
+    line-height: 100px;
+    color: aliceblue;
+    font-size: 32px;
 }
 
 canvas {
     background-color: white;
+}
+
+div#bottom {
+    width: 1280px;
+    height: 80px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+}
+
+div#top #left {
+    position: absolute;
+    top: 0px;
+    left: 70px;
+    height: 50px;
+    line-height: 50px;
+}
+
+div#top #middle {
+    padding: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}
+
+div#top #right {
+    position: absolute;
+    top: 0px;
+    right: 70px;
+    height: 50px;
+    line-height: 50px;
 }

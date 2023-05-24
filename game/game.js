@@ -28,6 +28,12 @@ function gameInit() {
     game.isPaused = false;
     game.lifeLeft = 3;
     game.score = 0;
+    timer = setInterval(changeTime, 1000);
+
+    // div 화면 초기화
+    updateLife();
+    updateScore();
+    updateTime();
 }
 
 /** function gameDraw() : 게임 내부 화면 그리기 함수 */
@@ -56,7 +62,7 @@ function gameDraw() {
 function keyDownHandler(e) {
     if (e.key === "Escape") {
         game.isPaused = !game.isPaused;
-        if (!game.isPaused) interval = requestAnimationFrame(draw);
+        if (!game.isPaused) interval = requestAnimationFrame(gameDraw);
     }
 }
 

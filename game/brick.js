@@ -126,7 +126,9 @@ class Brick {
     setLife() {
         if (this.life) {
             this.life = false;
-            game.score += 100;
+            game.score += 100 * (1 + game.combo * game.combo * 0.1);
+            game.combo++;
+            updateScore();
         }
     }
 
@@ -167,7 +169,6 @@ class itemBrick extends Brick {
         // this.brickOffsetLeft = 30;
 
         // ** 변화한 부분
-        this.itemList = ["fire", "water"]; //constant.js
         this.skinType;
 
         //멤버 변수

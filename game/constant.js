@@ -15,3 +15,6 @@ const game = {
 };
 
 let interval = null;
+let timer = null;
+
+const itemList = ["fire", "water", "stone", "air"];
