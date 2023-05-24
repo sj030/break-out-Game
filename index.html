@@ -3,6 +3,7 @@
     <head>
         <title>웹프 팀플과제</title>
         <link rel="stylesheet" href="./game/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script defer src="./game/constant.js"></script>
         <script defer src="./game/stage.js"></script>
         <script defer src="./game/collide.js"></script>
@@ -11,8 +12,15 @@
         <script defer src="./game/ball.js"></script>
         <script defer src="./game/scene.js"></script>
         <script defer src="./game/game.js"></script>
+        <script defer src="./game/gameManager.js"></script>
     </head>
     <body>
+        <div id="startPage">
+            <button id="introduceButton">게임 소개</button>
+            <canvas id="tutorial" width="150" height="150"></canvas>
+        </div>
+        <div id="opening">
+        </div>
         <div id="content">
             <div id="top">
                 <div id="left">
@@ -30,6 +38,10 @@
             </div>
             <canvas id="screen"></canvas>
             <div id="bottom"></div>
+        </div>
+        <div id="gameOver">
+        </div>
+        <div id="gameClear">
         </div>
     </body>
 </html>

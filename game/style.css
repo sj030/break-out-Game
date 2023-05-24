@@ -17,6 +17,43 @@ body {
     background-color: lightgray;
     text-align: center;
 }
+/* 
+author: 황서진
+*/
+div#startPage{
+    margin: 0 auto;
+    background-color: white;
+    width: 1280px;
+    height: 920px;
+}
+div#opening{
+    margin: 0 auto;
+    display: none;
+    width: 1280px;
+    height: 920px;
+}
+div#content{
+    margin: 0 auto;
+    display: none;
+    width: 1280px;
+    height: 920px;
+}
+div#gameOver{
+    margin: 0 auto;
+    display: none;
+    width: 1280px;
+    height: 920px;
+}
+div#gameClear{
+    margin: 0 auto;
+    display: none;
+    width: 1280px;
+    height: 920px;
+}
+#tutorial{
+    display: none;
+}
+/* changed */
 
 div#top {
     position: relative;
