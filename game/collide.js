@@ -27,7 +27,7 @@ function collisionDetectionPaddle(ball, paddle) {
         bounceAble = false;
 
         // 콤보 초기화
-        game.combo = 0;
+        currentStage.combo = 0;
     }
 }
 

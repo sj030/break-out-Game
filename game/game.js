@@ -19,15 +19,10 @@ function gameInit() {
     document.addEventListener("keydown", keyDownHandler, false);
 
     // 스테이지별 init
+    currentStage = new StageStatus(stageBrickInformation[0], 180, 3, 0);
     paddle.init();
     stage.init();
     ball.init();
-    game.timeLeft = 180;
-    game.isCleared = false;
-    game.isOver = false;
-    game.isPaused = false;
-    game.lifeLeft = 3;
-    game.score = 0;
     timer = setInterval(changeTime, 1000);
 
     // div 화면 초기화
@@ -38,9 +33,9 @@ function gameInit() {
 
 /** function gameDraw() : 게임 내부 화면 그리기 함수 */
 function gameDraw() {
-    if (game.isPaused && gamePauseScene()) return; // 일시정지
-    if (game.isCleared && stageClearScene()) return; // 스테이지 클리어
-    if (game.isOver && gameOverScene()) return; // 게임오버
+    if (currentStage.isPaused && gamePauseScene()) return; // 일시정지
+    if (currentStage.isCleared && stageClearScene()) return; // 스테이지 클리어
+    if (currentStage.isOver && gameOverScene()) return; // 게임오버
 
     // 화면 초기화
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -61,8 +56,8 @@ function gameDraw() {
 /** function keyDownHandler(e) : 키보드 입력 Event Handler */
 function keyDownHandler(e) {
     if (e.key === "Escape") {
-        game.isPaused = !game.isPaused;
-        if (!game.isPaused) interval = requestAnimationFrame(gameDraw);
+        currentStage.isPaused = !currentStage.isPaused;
+        if (!currentStage.isPaused) interval = requestAnimationFrame(gameDraw);
     }
 }
 

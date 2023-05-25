@@ -25,6 +25,7 @@ class Ball {
         this.angle = Math.PI * 0.5;
         this.x = (canvas.width - this.width) / 2;
         this.y = (canvas.height - this.height) / 2;
+        this.speed = 5;
     }
 
     run() {

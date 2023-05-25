@@ -72,7 +72,7 @@ class stageBrick {
                 }
             }
         }
-        if (isGameClear) game.isCleared = true;
+        if (isGameClear) currentStage.isCleared = true;
     }
 }
 
@@ -126,8 +126,8 @@ class Brick {
     setLife() {
         if (this.life) {
             this.life = false;
-            game.score += 100 * (1 + game.combo * game.combo * 0.1);
-            game.combo++;
+            currentStage.score +=
+                100 * (1 + currentStage.combo * currentStage.combo++ * 0.1);
             updateScore();
         }
     }
