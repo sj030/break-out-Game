@@ -52,6 +52,7 @@ function gameDraw() {
     stage.drawStageBrick();
     paddle.drawPaddle(context);
     ball.run();
+    if (healthItem !== null && healthItem.avail) healthItem.drop();
 
     // 충돌 감지
     collisionDetectionPaddle(ball, paddle);

@@ -69,3 +69,15 @@ function collisionDetectionBrick(ball) {
     if (bounceYCount > 0 && bounceYCount % 2 == 0)
         ball.angle = Math.PI - ball.angle;
 }
+
+function collisionDetectionHeart(heart, paddle) {
+    if (heart === null) return;
+    if (
+        heart.x + heart.width > paddle.paddleX &&
+        heart.x < paddle.paddleX + paddle.width &&
+        heart.y + heart.height > canvas.height - paddle.height &&
+        heart.y < canvas.height
+    ) {
+        heart.destroy();
+    }
+}

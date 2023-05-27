@@ -63,6 +63,11 @@ class stageBrick {
                                     currentStage.score += 400;
                                     break;
                                 case 3: // air - 체력을 회복시키는 아이템을 준다
+                                    if (healthItem == null)
+                                        healthItem = new HealthItem(
+                                            this.brickX + this.brickWidth / 2,
+                                            this.brickY + this.brickHeight
+                                        );
                                     break;
                             }
                             currentStage.score +=
@@ -138,6 +143,7 @@ class Brick {
         this.brickY =
             Ly * (this.brickHeight + this.brickPadding) + this.brickOffsetTop;
     }
+
     draw() {
         context.drawImage(
             this.image,
@@ -216,7 +222,33 @@ class itemBrick extends Brick {
 }
 
 class HealthItem {
-    constructor(ctx) {
-        this.ctx = ctx;
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.avail = true;
+        this.image = new Image();
+        this.image.src = "./images/heart.png";
+        this.width = 27;
+        this.height = 27;
+    }
+
+    draw() {
+        context.drawImage(this.image, this.x, this.y);
+    }
+
+    drop() {
+        if (this.y < canvas.width) {
+            this.y++;
+        }
+        if (this.avail) {
+            this.draw();
+            collisionDetectionHeart(this, paddle);
+        }
+    }
+
+    destroy() {
+        this.avail = false;
+        currentStage.lifeLeft++;
+        updateLife();
     }
 }

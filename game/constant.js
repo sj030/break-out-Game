@@ -26,3 +26,4 @@ let currentStage = null;
 let stage = null;
 let paddle = null;
 let ball = null;
+let healthItem = null;
