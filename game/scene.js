@@ -17,12 +17,18 @@ function ballOutScene() {
     if (--currentStage.lifeLeft <= 0) currentStage.isOver = true;
     updateLife();
     ball.init();
+
 }
 
 /** function gameOverScene() : 게임 오버 처리 */
 function gameOverScene() {
     clearInterval(timer);
     cancelAnimationFrame(interval);
+    //gameManager 역할 수행
+    InGameBGMArr[InGameBGMIndex].pause();
+    deathSoundBGM.play();
+    $("#content").css({display:"none"});
+    $("#gameOver").css({display:"block"});
     return true;
 }
 
@@ -33,6 +39,12 @@ function stageClearScene() {
     context.fillText("Stage Clear", canvas.width / 2, canvas.height / 2);
     cancelAnimationFrame(interval);
     clearInterval(timer);
+
+    //gameManager 역할 수행
+    InGameBGMArr[InGameBGMIndex].pause();
+    gameClearBGM.play();
+    $("#content").css({display:"none"});
+    $("#gameClear").css({display:"block"});
     return true;
 }
 

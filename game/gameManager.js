@@ -1,5 +1,10 @@
 // for startPage
 function inPageAddListner() {
+	//0. start audio (audio for every page)
+	// openingBGM.loop = true;
+    // openingBGM.play();
+    // implement by using event trigger
+
     //1. start page
     $("#introduceButton")[0].addEventListener("click", showIntroduceCanvas);
     $("#startButton")[0].addEventListener("click", startToOpening);
@@ -8,8 +13,7 @@ function inPageAddListner() {
     $("#skipButton")[0].addEventListener("click", openingToContent);
 
     //3. content page
-    // gameover 시 > #gameOver
-    // gameclear 시 > #gameClear
+    //scene.js에서 수행
 }
 
 function showIntroduceCanvas() {
@@ -37,6 +41,10 @@ function startToOpening() {
     //case1. by using fadeInNOut
     $("#startPage").fadeOut(2000);
     $("#opening").delay(3000).fadeIn(2000);
+
+    //audio change
+    openingBGM.loop = true;
+    openingBGM.play();
 }
 
 function openingToContent() {
@@ -44,6 +52,9 @@ function openingToContent() {
     $("#opening").css({ display: "none" });
     $("#content").css({ display: "block" });
     // 실행
+    openingBGM.pause();
+    InGameBGMArr[InGameBGMIndex].loop = true;
+    InGameBGMArr[InGameBGMIndex].play();
     gameInit();
 }
 
