@@ -63,10 +63,7 @@ class stageBrick {
                                     currentStage.score += 400;
                                     break;
                                 case 3: // air - 체력을 회복시키는 아이템을 준다
-                                    if (
-                                        healthItem == null ||
-                                        !healthItem?.avail
-                                    )
+                                    if (!healthItem?.avail)
                                         healthItem = new HealthItem(
                                             this.brickX + this.brickWidth / 2,
                                             this.brickY + this.brickHeight

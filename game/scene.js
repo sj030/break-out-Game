@@ -5,7 +5,7 @@
 function gamePauseScene() {
     context.font = "20pt PFStarDust";
     context.textAlign = "center";
-    context.fillText("일시정지됨", canvas.width / 2, canvas.height / 2);
+    context.fillText("Paused", canvas.width / 2, canvas.height / 2);
     cancelAnimationFrame(interval);
     clearInterval(timer);
     return true;
@@ -23,6 +23,16 @@ function ballOutScene() {
 function gameOverScene() {
     clearInterval(timer);
     cancelAnimationFrame(interval);
+    return true;
+}
+
+/** function stageClearScene() : 스테이지 클리어 시 처리 */
+function stageClearScene() {
+    context.font = "20pt PFStarDust";
+    context.textAlign = "center";
+    context.fillText("Stage Clear", canvas.width / 2, canvas.height / 2);
+    cancelAnimationFrame(interval);
+    clearInterval(timer);
     return true;
 }
 
