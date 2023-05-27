@@ -48,3 +48,7 @@ const gameClearBGM = new Audio();
 gameClearBGM.src = "./sound/gameClear.mp3" ;
 const deathSoundBGM = new Audio();
 deathSoundBGM.src = "./sound/deathSound.mp3";
+
+
+//"게임 소개" 버튼을 위한 변수입니다. 
+var isShowedIntroduce = false; // not const

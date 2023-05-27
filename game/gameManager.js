@@ -19,22 +19,32 @@ function inPageAddListner() {
 function showIntroduceCanvas() {
     var canvas = document.getElementById("introducePage");
     // 화면 중앙에 배치
-    $("#startPage").css({ position: "relative" });
-    $("#introducePage").css({
-        display: "inline",
-        position: "absolute",
-        width: "400px",
-        height: "800px",
-        top: "15%",
-        left: "35%",
-    });
-
-    if (canvas.getContext) {
+    
+    if(!isShowedIntroduce){ // false인 상황
+    	isShowedIntroduce = true;
+    	$("#startPage").css({ position: "relative" });
+    	$("#introducePage").css({
+        	display: "inline",
+        	position: "absolute",
+        	width: "400px",
+        	height: "800px",
+        	top: "15%",
+        	left: "35%",
+    	});
+    	if (canvas.getContext) {
         //이미지로 변경할 예정.
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "rgb(200,0,0)";
-        ctx.fillRect(0, 0, 500, 500);
+        	var ctx = canvas.getContext("2d");
+        	ctx.fillStyle = "rgb(200,0,0)";
+        	ctx.fillRect(0, 0, 500, 500);
+    	}
     }
+    else{
+    	isShowedIntroduce = false;
+    	$("#introducePage").css({
+    		display:"none"
+    	});
+    }
+    
 }
 
 function startToOpening() {
