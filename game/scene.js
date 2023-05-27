@@ -3,10 +3,11 @@
 
 /** function gamePauseScene() : 일시정지 화면 */
 function gamePauseScene() {
-    context.font = "20pt Arial";
+    context.font = "20pt PFStarDust";
     context.textAlign = "center";
     context.fillText("일시정지됨", canvas.width / 2, canvas.height / 2);
     cancelAnimationFrame(interval);
+    clearInterval(timer);
     return true;
 }
 

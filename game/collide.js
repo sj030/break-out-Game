@@ -47,7 +47,7 @@ function collisionDetectionBrick(ball) {
                 ball.y < brick.brickY + brick.brickHeight
             ) {
                 ball.angle = Math.PI - ball.angle;
-                brick.setLife();
+                brick.destroy();
                 bounceYCount++;
             }
             // x축 방향 튕김
@@ -58,7 +58,7 @@ function collisionDetectionBrick(ball) {
                 ball.y + ball.ydir < brick.brickY + brick.brickHeight
             ) {
                 ball.angle = Math.PI * 2 - ball.angle;
-                brick.setLife();
+                brick.destroy();
                 bounceXCount++;
             }
         }

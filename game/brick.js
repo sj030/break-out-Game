@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 
 /*
 Author: 황서진
@@ -31,24 +31,49 @@ class stageBrick {
     }
 
     init() {
-        var info = stageBrickInformation[this.currentStage]; //constant.js의 값을 어떻게 들고올지에 대해 공부가 필요합니다.
+        var info = stageBrickInformation[this.currentStage];
+        var brickArr = this.currentBrickComposition;
         /*
 			가져온 스테이지 정보에 맞게, 멤버 변수를 구성합니다. 1이면 일반 벽돌, 2이면 아이템 벽돌, 0이면 공백입니다. 
 		*/
         for (let i = 0; i < info.length; i++) {
             for (let j = 0; j < info[i].length; j++) {
                 if (info[i][j] == 1) {
-                    this.currentBrickComposition[i][j] = new Brick(
-                        this.ctx,
-                        i,
-                        j
-                    );
+                    brickArr[i][j] = new Brick(this.ctx, i, j);
                 } else if (info[i][j] == 2) {
-                    this.currentBrickComposition[i][j] = new itemBrick(
-                        this.ctx,
-                        i,
-                        j
-                    );
+                    const tmp = new itemBrick(this.ctx, i, j);
+                    brickArr[i][j] = tmp;
+                    tmp.destroy = function () {
+                        if (this.life) {
+                            this.life = false;
+                            switch (this.itemType) {
+                                case 0: // fire - 상하좌우의 블록을 부순다
+                                    if (i < stageOne.length - 1)
+                                        brickArr[i + 1][j].destroy();
+                                    if (i > 0) brickArr[i - 1][j].destroy();
+                                    if (j < stageOne[0].length - 1)
+                                        brickArr[i][j + 1].destroy();
+                                    if (j > 0) brickArr[i][j - 1].destroy();
+                                    break;
+                                case 1: // ice - 남은 시간을 10초 늘어나게 한다
+                                    currentStage.timeLeft += 10;
+                                    updateTime();
+                                    break;
+                                case 2: // stone - 추가점수 400점을 더 준다
+                                    currentStage.score += 400;
+                                    break;
+                                case 3: // air - 체력을 회복시키는 아이템을 준다
+                                    break;
+                            }
+                            currentStage.score +=
+                                100 *
+                                (1 +
+                                    currentStage.combo *
+                                        currentStage.combo++ *
+                                        0.1);
+                            updateScore();
+                        }
+                    };
                 } else {
                     this.currentBrickComposition[i][j] = null;
                 }
@@ -122,8 +147,8 @@ class Brick {
             this.brickHeight
         );
     }
-    //setter 함수
-    setLife() {
+
+    destroy() {
         if (this.life) {
             this.life = false;
             currentStage.score +=
@@ -153,8 +178,7 @@ Date: 2023.05.19
 
 		**이하는 Brick과 같습니다. 
 		drawBrick() 함수/ stageBrick클래스에서 호출됩니다. 
-		setLife() 함수/ main.js에서 collision발생 시 호출됩니다. 반대로 바꿉니다. 
-		getLife() 함수/ 멤버 변수 life의 getter 함수입니다. 
+		destroy() 함수/ main.js에서 collision발생 시 호출됩니다. 반대로 바꿉니다.
 */
 class itemBrick extends Brick {
     constructor(ctx, Lx, Ly) {
@@ -169,29 +193,30 @@ class itemBrick extends Brick {
         // this.brickOffsetLeft = 30;
 
         // ** 변화한 부분
-        this.skinType;
+        this.itemType = Math.floor(Math.random() * itemList.length); // 랜덤으로 설정
+        this.image = new Image();
+        this.imageArr = [
+            "./images/brick_fire_origin.png",
+            "./images/brick_ice_origin.png",
+            "./images/brick_stone_origin.png",
+            "./images/brick_snow_origin.png",
+        ];
+
+        this.image.src = this.imageArr[this.itemType];
 
         //멤버 변수
         this.ctx = ctx;
         this.life;
-        this.brickX;
-        this.brickY;
+        this.brickX =
+            Lx * (this.brickWidth + this.brickPadding) +
+            this.brickOffsetOneSide;
+        this.brickY =
+            Ly * (this.brickHeight + this.brickPadding) + this.brickOffsetTop;
     }
+}
 
-    //상속
-    draw() {
-        super.draw();
-    }
-    init() {
-        super.init();
-        this.skinType = this.itemList[0]; // random으로 변경 예정
-    }
-    setLife() {
-        super.setLife();
-    }
-
-    //getter 함수
-    getLife() {
-        super.getLife();
+class HealthItem {
+    constructor(ctx) {
+        this.ctx = ctx;
     }
 }

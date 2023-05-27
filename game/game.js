@@ -20,6 +20,10 @@ function gameInit() {
 
     // 스테이지별 init
     currentStage = new StageStatus(stageBrickInformation[0], 180, 3, 0);
+    stage = new stageBrick(context, 0);
+    paddle = new Paddle(context);
+    ball = new Ball("./images/ball.png");
+
     paddle.init();
     stage.init();
     ball.init();
@@ -29,13 +33,17 @@ function gameInit() {
     updateLife();
     updateScore();
     updateTime();
+
+    // 게임 시작
+    gameDraw();
 }
 
 /** function gameDraw() : 게임 내부 화면 그리기 함수 */
 function gameDraw() {
-    if (currentStage.isPaused && gamePauseScene()) return; // 일시정지
-    if (currentStage.isCleared && stageClearScene()) return; // 스테이지 클리어
     if (currentStage.isOver && gameOverScene()) return; // 게임오버
+    if (currentStage.isCleared && stageClearScene()) return; // 스테이지 클리어
+    if (currentStage.isPaused && gamePauseScene()) return; // 일시정지
+    if (currentStage.isInitial && initScene()) return; // 시작화면
 
     // 화면 초기화
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -57,15 +65,9 @@ function gameDraw() {
 function keyDownHandler(e) {
     if (e.key === "Escape") {
         currentStage.isPaused = !currentStage.isPaused;
-        if (!currentStage.isPaused) interval = requestAnimationFrame(gameDraw);
+        if (!currentStage.isPaused) {
+            interval = requestAnimationFrame(gameDraw);
+            timer = setInterval(changeTime, 1000);
+        }
     }
 }
-
-// 요소 생성
-const stage = new stageBrick(context, 0);
-const paddle = new Paddle(context);
-const ball = new Ball("./images/ball.png");
-
-// 실행
-gameInit();
-gameDraw();

@@ -20,6 +20,9 @@ class StageStatus {
 let interval = null;
 let timer = null;
 
-const itemList = ["fire", "water", "stone", "air"];
+const itemList = ["fire", "ice", "stone", "air"];
 
 let currentStage = null;
+let stage = null;
+let paddle = null;
+let ball = null;
