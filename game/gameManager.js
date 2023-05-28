@@ -18,6 +18,7 @@ function openingToContent() {
     $("#content").css({ display: "block" });
     // 실행
     openingBGM.pause();
+    InGameBGMArr[InGameBGMIndex].currentTime = 0;
     InGameBGMArr[InGameBGMIndex].loop = true;
     InGameBGMArr[InGameBGMIndex].play();
     // 필요시 currentTime

@@ -25,8 +25,13 @@ function loadStage(e) {
     $("#content").css({ display: "block" });
     // 배경음 시작
     openingBGM.pause();
+    InGameBGMArr[InGameBGMIndex].currentTime = 0;
     InGameBGMArr[InGameBGMIndex].loop = true;
     InGameBGMArr[InGameBGMIndex].play();
     // 필요시 currentTime
     gameInit();
+}
+
+function changeStage(){
+    
 }
