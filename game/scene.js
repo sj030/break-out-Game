@@ -17,7 +17,6 @@ function ballOutScene() {
     if (--currentStage.lifeLeft <= 0) currentStage.isOver = true;
     updateLife();
     ball.init();
-
 }
 
 /** function gameOverScene() : 게임 오버 처리 */
@@ -32,16 +31,13 @@ function gameOverScene() {
     deathSoundBGM.currentTime = 0;
     // 게임 오버 색상 반전 효과 추가 예정
 
-    $("#content").css({display:"none"});
-    $("#gameOver").css({display:"block"});
+    $("#content").css({ display: "none" });
+    $("#gameOver").css({ display: "block" });
     return true;
 }
 
 /** function stageClearScene() : 스테이지 클리어 시 처리 */
 function stageClearScene() {
-    context.font = "20pt PFStarDust";
-    context.textAlign = "center";
-    context.fillText("Stage Clear", canvas.width / 2, canvas.height / 2);
     cancelAnimationFrame(interval);
     clearInterval(timer);
 
@@ -50,8 +46,8 @@ function stageClearScene() {
     InGameBGMArr[InGameBGMIndex].pause();
     gameClearBGM.play();
     gameClearBGM.currentTime = 0;
-    $("#content").css({display:"none"});
-    $("#gameClear").css({display:"block"});
+    $("#content").css({ display: "none" });
+    $("#gameClear").css({ display: "block" });
     return true;
 }
 

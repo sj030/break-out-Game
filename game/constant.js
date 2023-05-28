@@ -10,6 +10,7 @@ class StageStatus {
         this.isPaused = false;
         this.isOver = false;
         this.isCleared = false;
+        this.isInitial = false;
         this.timeLeft = timeLeft;
         this.lifeLeft = lifeLeft;
         this.score = score;
@@ -32,7 +33,8 @@ let healthItem = null;
 const startBGM = new Audio();
 startBGM.src = "./sound/opening.oga";
 const openingBGM = new Audio();
-openingBGM.src = "./sound/Remembering_the_Sky_and_the_Scent_of_Flowers_preview.mp3";
+openingBGM.src =
+    "./sound/Remembering_the_Sky_and_the_Scent_of_Flowers_preview.mp3";
 
 const backGroundOneBGM = new Audio();
 backGroundOneBGM.src = "./sound/backGroundOne.mp3";
@@ -44,10 +46,10 @@ backGroundThreeBGM.src = "./sound/Brilliant_Blue_preview.mp3";
 var InGameBGMArr = [backGroundOneBGM, backGroundTwoBGM, backGroundThreeBGM];
 var InGameBGMIndex = 0;
 
-const TimeRunningBGM =  new Audio();
+const TimeRunningBGM = new Audio();
 TimeRunningBGM.src = "./sound/Gourmet_Race_KDL3.oga";
 const gameClearBGM = new Audio();
-gameClearBGM.src = "./sound/gameClear.mp3" ;
+gameClearBGM.src = "./sound/gameClear.mp3";
 const deathSoundBGM = new Audio();
 deathSoundBGM.src = "./sound/deathSound.mp3";
 
@@ -73,8 +75,6 @@ stoneSoundEffect.src = "./sound/soundEffect/poyo.mp3";
 const airSoundEffect = new Audio();
 airSoundEffect.src = "./sound/soundEffect/extraLife.mp3";
 
-
-
-//startPage 속 버튼을 위한 변수입니다. 
+//startPage 속 버튼을 위한 변수입니다.
 var isShowedIntroduce = false; // not const
 var isShowedSetting = false;

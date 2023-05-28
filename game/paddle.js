@@ -11,10 +11,11 @@ class Paddle {
         this.paddleX = (canvas.width - this.width) / 2;
         this.img = new Image();
         this.paddleimgarr = [
-            "../webP/images/kirby_origin.png",
-            "../webP/images/fire_origin.png",
-            "../webP/images/ice_origin.png",
-            "../webP/images/stone_origin.png",
+            "./images/kirby_origin.png",
+            "./images/fire_origin.png",
+            "./images/ice_origin.png",
+            "./images/stone_origin.png",
+            "./images/air_origin.png",
         ];
         this.imgarridx = 0;
         //스테이지 변경이 되면 imgarridx가 바뀌어야 함.
@@ -35,6 +36,11 @@ class Paddle {
 
     setPaddleX(x) {
         this.paddleX = x;
+    }
+
+    setPaddleImg(idx) {
+        this.imgarridx = idx;
+        this.img.src = this.paddleimgarr[this.imgarridx];
     }
 }
 

@@ -48,6 +48,7 @@ class stageBrick {
                             this.life = false;
                             switch (this.itemType) {
                                 case 0: // fire - 상하좌우의 블록을 부순다
+                                    paddle.setPaddleImg(1);
                                     fireSoundEffect.play();
                                     fireSoundEffect.currentTime = 0;
                                     if (i < stageOne.length - 1)
@@ -58,17 +59,20 @@ class stageBrick {
                                     if (j > 0) brickArr[i][j - 1].destroy();
                                     break;
                                 case 1: // ice - 남은 시간을 10초 늘어나게 한다
+                                    paddle.setPaddleImg(2);
                                     currentStage.timeLeft += 10;
                                     iceSoundEffect.play();
                                     iceSoundEffect.currentTime = 0;
                                     updateTime();
                                     break;
                                 case 2: // stone - 추가점수 400점을 더 준다
+                                    paddle.setPaddleImg(3);
                                     currentStage.score += 400;
                                     stoneSoundEffect.play(); //add soundEffect author: 황서진 date:05-28
                                     stoneSoundEffect.currentTime = 0;
                                     break;
                                 case 3: // air - 체력을 회복시키는 아이템을 준다
+                                    paddle.setPaddleImg(4);
                                     if (!healthItem?.avail)
                                         healthItem = new HealthItem(
                                             this.brickX + this.brickWidth / 2,
@@ -211,7 +215,7 @@ class itemBrick extends Brick {
             "./images/brick_fire_origin.png",
             "./images/brick_ice_origin.png",
             "./images/brick_stone_origin.png",
-            "./images/brick_snow_origin.png",
+            "./images/brick_air_origin.png",
         ];
 
         this.image.src = this.imageArr[this.itemType];
@@ -253,7 +257,7 @@ class HealthItem {
     }
 
     destroy() {
-        airSoundEffect.play();//add sound effec
+        airSoundEffect.play(); //add sound effec
         airSoundEffect.currentTime = 0;
         this.avail = false;
         currentStage.lifeLeft++;
