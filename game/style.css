@@ -21,6 +21,7 @@ body {
 author: 황서진
 */
 div#startPage{
+    position: relative; /*date: 2023-05-28 수정되었습니다.*/
     margin: 0 auto;
     background-color: white;
     width: 1280px;
@@ -55,6 +56,26 @@ div#gameClear{
 }
 #introducePage{
     display: none;
+    position: absolute;
+    width: 400px;
+    height: 800px;
+    top: 15%;
+    left: 35%;
+}
+/* changed */
+
+/*
+Author: 황서진
+Date: 2023-05-28
+*/
+#settingDiv{
+    display:none;
+    position: absolute;
+    width: 400px;
+    height: 800px;
+    top: 15%;
+    left: 35%;
+    background-color: lightblue; /*임시 설정입니다.*/
 }
 /* changed */
 

@@ -6,6 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script defer src="./game/constant.js"></script>
         <script defer src="./game/stage.js"></script>
+        <script defer src="./game/startPageManager.js"></script> 
         <script defer src="./game/collide.js"></script>
         <script defer src="./game/paddle.js"></script>
         <script defer src="./game/brick.js"></script>
@@ -18,7 +19,14 @@
         <div id="startPage">
             <canvas id="introducePage"></canvas>
             <button id="startButton">게임 시작</button>
-            <button id="introduceButton">게임 소개</button>
+            <button id="introduceButton">게임 방법</button>
+            <button id="settingButton">환경 설정</button>
+            <button id="exitButton">나가기</button>
+            <div id="settingDiv">
+                <!--임시 작성입니다, 초기 css > display none-->
+                - 배경음 설정<br>
+                - 스킨 설정<br>
+            </div>
         </div>
         <div id="opening">
             <button id="skipButton">SKIP</button>
