@@ -22,10 +22,10 @@ function gameInit() {
     paddle = new Paddle(context);
     ball = new Ball("./images/ball.png");
     healthItem = null;
+    comboTextArr = [];
 
     paddle.init();
     stage.init();
-    console.log(stage.currentBrickComposition);
     ball.init();
     timer = setInterval(changeTime, 1000);
 

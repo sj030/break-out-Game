@@ -44,8 +44,8 @@ backGroundTwoBGM.src = "./sound/A_Sparkling_Star_is_Born_preview.mp3";
 const backGroundThreeBGM = new Audio();
 backGroundThreeBGM.src = "./sound/Brilliant_Blue_preview.mp3";
 // 설정 가능한 3가지 in game BGM
-var InGameBGMArr = [backGroundOneBGM, backGroundTwoBGM, backGroundThreeBGM];
-var InGameBGMIndex = 0;
+let InGameBGMArr = [backGroundOneBGM, backGroundTwoBGM, backGroundThreeBGM];
+let InGameBGMIndex = 0;
 
 const TimeRunningBGM = new Audio();
 TimeRunningBGM.src = "./sound/Gourmet_Race_KDL3.oga";
@@ -77,5 +77,5 @@ const airSoundEffect = new Audio();
 airSoundEffect.src = "./sound/soundEffect/extraLife.mp3";
 
 //startPage 속 버튼을 위한 변수입니다.
-var isShowedIntroduce = false; // not const
-var isShowedSetting = false;
+let isShowedIntroduce = false; // not const
+let isShowedSetting = false;
