@@ -24,9 +24,14 @@ function ballOutScene() {
 function gameOverScene() {
     clearInterval(timer);
     cancelAnimationFrame(interval);
+
+    //Author: 황서진 Date: 2023-05-28
     //gameManager 역할 수행
     InGameBGMArr[InGameBGMIndex].pause();
     deathSoundBGM.play();
+    deathSoundBGM.currentTime = 0;
+    // 게임 오버 색상 반전 효과 추가 예정
+
     $("#content").css({display:"none"});
     $("#gameOver").css({display:"block"});
     return true;
@@ -40,9 +45,11 @@ function stageClearScene() {
     cancelAnimationFrame(interval);
     clearInterval(timer);
 
+    //Author: 황서진 Date: 2023-05-28
     //gameManager 역할 수행
     InGameBGMArr[InGameBGMIndex].pause();
     gameClearBGM.play();
+    gameClearBGM.currentTime = 0;
     $("#content").css({display:"none"});
     $("#gameClear").css({display:"block"});
     return true;

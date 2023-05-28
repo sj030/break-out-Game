@@ -64,5 +64,4 @@ function setting(){
 function exitGame(){
 
 }
-
 startPageAddListner();

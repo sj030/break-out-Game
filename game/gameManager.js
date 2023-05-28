@@ -20,6 +20,7 @@ function openingToContent() {
     openingBGM.pause();
     InGameBGMArr[InGameBGMIndex].loop = true;
     InGameBGMArr[InGameBGMIndex].play();
+    // 필요시 currentTime
     gameInit();
 }
 
