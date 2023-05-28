@@ -42,6 +42,7 @@ function startToOpening() {
     $("#opening").delay(3000).fadeIn(2000);
 
     //audio change
+    startBGM.pause();
     openingBGM.loop = true;
     openingBGM.play();
 }

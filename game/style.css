@@ -21,6 +21,7 @@ body {
 author: 황서진
 */
 div#startPage{
+    display: none;
     position: relative; /*date: 2023-05-28 수정되었습니다.*/
     margin: 0 auto;
     background-color: white;

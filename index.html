@@ -6,6 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script defer src="./game/constant.js"></script>
         <script defer src="./game/stage.js"></script>
+        <script defer src="./game/loadPageManager.js"></script>
         <script defer src="./game/startPageManager.js"></script> 
         <script defer src="./game/collide.js"></script>
         <script defer src="./game/paddle.js"></script>
@@ -16,6 +17,11 @@
         <script defer src="./game/gameManager.js"></script>
     </head>
     <body>
+        <div id="loadingPage">
+            페이지 시작시 오디오 자동재생이 불가능하여 임시로 만들어 놓은 div입니다.<br>
+            로드 버튼 클릭시 게임이 시작됩니다.<br>
+            <button id="loadButton">로드</button>
+        </div>
         <div id="startPage">
             <canvas id="introducePage"></canvas>
             <button id="startButton">게임 시작</button>
