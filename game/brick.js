@@ -46,17 +46,16 @@ class stageBrick {
                     tmp.destroy = function () {
                         if (this.life) {
                             this.life = false;
+                            let scoreAmount = 0;
                             switch (this.itemType) {
                                 case 0: // fire - 상하좌우의 블록을 부순다
                                     paddle.setPaddleImg(1);
                                     fireSoundEffect.play();
                                     fireSoundEffect.currentTime = 0;
-                                    if (i < stageOne.length - 1)
-                                        brickArr[i + 1][j].destroy();
-                                    if (i > 0) brickArr[i - 1][j].destroy();
-                                    if (j < stageOne[0].length - 1)
-                                        brickArr[i][j + 1].destroy();
-                                    if (j > 0) brickArr[i][j - 1].destroy();
+                                    brickArr[i + 1][j]?.destroy();
+                                    brickArr[i - 1][j]?.destroy();
+                                    brickArr[i][j + 1]?.destroy();
+                                    brickArr[i][j - 1]?.destroy();
                                     break;
                                 case 1: // ice - 남은 시간을 10초 늘어나게 한다
                                     paddle.setPaddleImg(2);
@@ -67,7 +66,7 @@ class stageBrick {
                                     break;
                                 case 2: // stone - 추가점수 400점을 더 준다
                                     paddle.setPaddleImg(3);
-                                    currentStage.score += 400;
+                                    scoreAmount += 400;
                                     stoneSoundEffect.play(); //add soundEffect author: 황서진 date:05-28
                                     stoneSoundEffect.currentTime = 0;
                                     break;
@@ -80,12 +79,25 @@ class stageBrick {
                                         );
                                     break;
                             }
-                            currentStage.score +=
+                            scoreAmount += parseInt(
                                 100 *
-                                (1 +
-                                    currentStage.combo *
-                                        currentStage.combo++ *
-                                        0.1);
+                                    (1 +
+                                        currentStage.combo *
+                                            currentStage.combo++ *
+                                            0.1)
+                            );
+                            currentStage.score += scoreAmount;
+
+                            comboTextArr.push(
+                                new ComboText(
+                                    this.brickX + this.brickWidth / 2,
+                                    this.brickY + this.brickHeight / 2,
+                                    currentStage.combo +
+                                        "combo (+" +
+                                        scoreAmount +
+                                        ")"
+                                )
+                            );
                             updateScore();
                         }
                     };
@@ -167,8 +179,18 @@ class Brick {
     destroy() {
         if (this.life) {
             this.life = false;
-            currentStage.score +=
-                100 * (1 + currentStage.combo * currentStage.combo++ * 0.1);
+            let scoreAmount = parseInt(
+                100 * (1 + currentStage.combo * currentStage.combo++ * 0.1)
+            );
+            currentStage.score += scoreAmount;
+
+            comboTextArr.push(
+                new ComboText(
+                    this.brickX + this.brickWidth / 2,
+                    this.brickY + this.brickHeight / 2,
+                    currentStage.combo + "combo (+" + scoreAmount + ")"
+                )
+            );
             updateScore();
         }
     }
@@ -231,6 +253,9 @@ class itemBrick extends Brick {
     }
 }
 
+/** Author : 백창현
+ * 체력 회복 아이템
+ */
 class HealthItem {
     constructor(x, y) {
         this.x = x;
@@ -262,5 +287,25 @@ class HealthItem {
         this.avail = false;
         currentStage.lifeLeft++;
         updateLife();
+    }
+}
+
+/** Author : 백창현
+ * 콤보 수 표시
+ */
+class ComboText {
+    constructor(x, y, text) {
+        this.x = x;
+        this.y = y;
+        this.text = text;
+
+        this.time = 0;
+    }
+
+    draw() {
+        context.font = "14pt PFStarDust";
+        context.textAlign = "center";
+        context.fillText(this.text, this.x, this.y);
+        this.time++;
     }
 }

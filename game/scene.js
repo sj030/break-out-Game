@@ -48,6 +48,7 @@ function stageClearScene() {
     gameClearBGM.currentTime = 0;
     $("#content").css({ display: "none" });
     $("#gameClear").css({ display: "block" });
+    nextStageAddListener();
     return true;
 }
 

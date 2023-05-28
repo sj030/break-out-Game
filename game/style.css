@@ -20,7 +20,7 @@ body {
 /* 
 author: 황서진
 */
-div#startPage{
+div#startPage {
     display: none;
     position: relative; /*date: 2023-05-28 수정되었습니다.*/
     margin: 0 auto;
@@ -28,34 +28,34 @@ div#startPage{
     width: 1280px;
     height: 920px;
 }
-div#opening{
+div#opening {
     margin: 0 auto;
     background-color: white;
     display: none;
     width: 1280px;
     height: 920px;
 }
-div#content{
+div#content {
     margin: 0 auto;
     display: none;
     width: 1280px;
     height: 920px;
 }
-div#gameOver{
-    margin: 0 auto;
-    background-color: white;
-    display: none;
-    width: 1280px;
-    height: 920px;
-}
-div#gameClear{
+div#gameOver {
     margin: 0 auto;
     background-color: white;
     display: none;
     width: 1280px;
     height: 920px;
 }
-#introducePage{
+div#gameClear {
+    margin: 0 auto;
+    background-color: white;
+    display: none;
+    width: 1280px;
+    height: 920px;
+}
+#introducePage {
     display: none;
     position: absolute;
     width: 400px;
@@ -63,14 +63,22 @@ div#gameClear{
     top: 15%;
     left: 35%;
 }
+/* Author: 백창현 */
+#stageSelect {
+    margin: 0 auto;
+    background-color: white;
+    display: none;
+    width: 1280px;
+    height: 920px;
+}
 /* changed */
 
 /*
 Author: 황서진
 Date: 2023-05-28
 */
-#settingDiv{
-    display:none;
+#settingDiv {
+    display: none;
     position: absolute;
     width: 400px;
     height: 800px;

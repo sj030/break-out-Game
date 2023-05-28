@@ -1,12 +1,12 @@
 // for startPage
 function inPageAddListner() {
-	//0. start audio (audio for every page)
-	// openingBGM.loop = true;
+    //0. start audio (audio for every page)
+    // openingBGM.loop = true;
     // openingBGM.play();
     // implement by using event trigger
-    
+
     //2. opening page
-    $("#skipButton")[0].addEventListener("click", openingToContent);
+    $("#skipButton")[0].addEventListener("click", openingToStageSelect);
 
     //3. content page
     //scene.js에서 수행
@@ -22,6 +22,12 @@ function openingToContent() {
     InGameBGMArr[InGameBGMIndex].play();
     // 필요시 currentTime
     gameInit();
+}
+
+function openingToStageSelect() {
+    $("#opening").css({ display: "none" });
+    $("#stageSelect").css({ display: "block" });
+    stageSelectAddListener();
 }
 
 inPageAddListner();

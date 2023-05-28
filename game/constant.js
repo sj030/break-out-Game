@@ -28,6 +28,7 @@ let stage = null;
 let paddle = null;
 let ball = null;
 let healthItem = null;
+let comboTextArr = [];
 
 //audio for BGM
 const startBGM = new Audio();

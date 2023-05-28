@@ -19,13 +19,13 @@ function gameInit() {
     document.addEventListener("keydown", keyDownHandler, false);
 
     // 스테이지별 init
-    currentStage = new StageStatus(stageBrickInformation[0], 180, 3, 0);
-    stage = new stageBrick(context, 0);
     paddle = new Paddle(context);
     ball = new Ball("./images/ball.png");
+    healthItem = null;
 
     paddle.init();
     stage.init();
+    console.log(stage.currentBrickComposition);
     ball.init();
     timer = setInterval(changeTime, 1000);
 
@@ -50,6 +50,13 @@ function gameDraw() {
 
     // 요소 그리기
     stage.drawStageBrick();
+    for (let idx in comboTextArr) {
+        if (comboTextArr[idx]?.time > 50) {
+            comboTextArr[idx] = null;
+            continue;
+        }
+        comboTextArr[idx]?.draw();
+    }
     paddle.drawPaddle(context);
     ball.run();
     if (healthItem !== null && healthItem.avail) healthItem.drop();

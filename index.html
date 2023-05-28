@@ -6,20 +6,23 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script defer src="./game/constant.js"></script>
         <script defer src="./game/stage.js"></script>
-        <script defer src="./game/loadPageManager.js"></script>
-        <script defer src="./game/startPageManager.js"></script> 
         <script defer src="./game/collide.js"></script>
         <script defer src="./game/paddle.js"></script>
         <script defer src="./game/brick.js"></script>
         <script defer src="./game/ball.js"></script>
         <script defer src="./game/scene.js"></script>
+        <script defer src="./game/loadPageManager.js"></script>
+        <script defer src="./game/startPageManager.js"></script>
+        <script defer src="./game/stageSelectManager.js"></script>
+        <script defer src="./game/clearPageManager.js"></script>
         <script defer src="./game/game.js"></script>
         <script defer src="./game/gameManager.js"></script>
     </head>
     <body>
         <div id="loadingPage">
-            페이지 시작시 오디오 자동재생이 불가능하여 임시로 만들어 놓은 div입니다.<br>
-            로드 버튼 클릭시 게임이 시작됩니다.<br>
+            페이지 시작시 오디오 자동재생이 불가능하여 임시로 만들어 놓은
+            div입니다.<br />
+            로드 버튼 클릭시 게임이 시작됩니다.<br />
             <button id="loadButton">로드</button>
         </div>
         <div id="startPage">
@@ -30,12 +33,17 @@
             <button id="exitButton">나가기</button>
             <div id="settingDiv">
                 <!--임시 작성입니다, 초기 css > display none-->
-                - 배경음 설정<br>
-                - 스킨 설정<br>
+                - 배경음 설정<br />
+                - 스킨 설정<br />
             </div>
         </div>
         <div id="opening">
             <button id="skipButton">SKIP</button>
+        </div>
+        <div id="stageSelect">
+            <button id="stage1">Stage 1</button>
+            <button id="stage2">Stage 2</button>
+            <button id="stage3">Stage 3</button>
         </div>
         <div id="content">
             <div id="top">
@@ -55,11 +63,10 @@
             <canvas id="screen"></canvas>
             <div id="bottom"></div>
         </div>
-        <div id="gameOver">
-            게임 오버 화면
-        </div>
+        <div id="gameOver">게임 오버 화면</div>
         <div id="gameClear">
-            게임 클리어 화면
+            <div id="result"></div>
+            <button id="nextButton">다음 스테이지</button>
         </div>
     </body>
 </html>
