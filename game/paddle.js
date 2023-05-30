@@ -9,6 +9,7 @@ class Paddle {
         this.width = 162;
         this.height = 57;
         this.paddleX = (canvas.width - this.width) / 2;
+        this.paddleY = canvas.height - this.height;
         this.img = new Image();
         this.paddleimgarr = [
             "./images/kirby_origin.png",
@@ -23,7 +24,7 @@ class Paddle {
     }
 
     drawPaddle() {
-        context.drawImage(this.img, this.paddleX, canvas.height - this.height);
+        context.drawImage(this.img, this.paddleX, this.paddleY);
     }
 
     getWidth() {
@@ -34,8 +35,16 @@ class Paddle {
         return this.paddleX;
     }
 
+    getPaddleY() {
+        return this.paddleY;
+    }
+
     setPaddleX(x) {
         this.paddleX = x;
+    }
+
+    setPaddleY(y){
+        this.paddleY = y;
     }
 
     setPaddleImg(idx) {

@@ -55,6 +55,8 @@ const deathSoundBGM = new Audio();
 deathSoundBGM.src = "./sound/deathSound.mp3";
 
 //audio for soundEffect
+const ascendingEffect = new Audio();
+ascendingEffect.src = "./sound/soundEffect/ascending.mp3";
 const voiceOneEffect = new Audio();
 voiceOneEffect.src = "./sound/soundEffect/voiceOne.mp3";
 const voiceTwoEffect = new Audio();
@@ -79,3 +81,4 @@ airSoundEffect.src = "./sound/soundEffect/extraLife.mp3";
 //startPage 속 버튼을 위한 변수입니다.
 let isShowedIntroduce = false; // not const
 let isShowedSetting = false;
+let isAscend = false;

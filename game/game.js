@@ -1,3 +1,5 @@
+//game.js 파일입니다.
+
 /*
  * <웹 프로그래밍 8팀 팀프로젝트 구현>
  * README.md file 참고 바랍니다.
@@ -41,7 +43,7 @@ function gameInit() {
 /** function gameDraw() : 게임 내부 화면 그리기 함수 */
 function gameDraw() {
     if (currentStage.isOver && gameOverScene()) return; // 게임오버
-    if (currentStage.isCleared && stageClearScene()) return; // 스테이지 클리어
+    if (currentStage.isCleared && upKirbyAnimation()) return; // 스테이지 클리어
     if (currentStage.isPaused && gamePauseScene()) return; // 일시정지
     if (currentStage.isInitial && initScene()) return; // 시작화면
 

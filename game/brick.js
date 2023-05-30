@@ -52,6 +52,7 @@ class stageBrick {
                                     paddle.setPaddleImg(1);
                                     fireSoundEffect.play();
                                     fireSoundEffect.currentTime = 0;
+                                    // 밝기 반전 추가
                                     brickArr[i + 1][j]?.destroy();
                                     brickArr[i - 1][j]?.destroy();
                                     brickArr[i][j + 1]?.destroy();

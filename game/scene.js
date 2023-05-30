@@ -35,15 +35,33 @@ function gameOverScene() {
     $("#gameOver").css({ display: "block" });
     return true;
 }
-
+function upKirbyAnimation() {
+    // paddle이 상승하는 애니메이션을 구현합니다.
+    // paddle의 y 좌표를 일정한 간격으로 변경하여 상승 효과를 만듭니다.
+    const paddleSpeed = 2; // paddle이 상승하는 속도를 조절합니다.
+    if(!isAscend){ // 첫 호출
+        isAscend = true;
+        InGameBGMArr[InGameBGMIndex].pause();
+        ascendingEffect.currentTime = 0; // 상승 효과음
+        ascendingEffect.play();
+    }
+    // 상승 애니메이션을 위해 paddle의 y 좌표를 변경합니다.
+    paddle.setPaddleY(paddle.getPaddleY() - paddleSpeed);
+    ball.speed = 0;
+    // paddle이 상단에 도달했는지 확인합니다.
+    if (paddle.getPaddleY() <= 0) {
+        isAscend = false;
+        ball.speed = 5;
+        stageClearScene();
+        return true;
+    }
+    // 애니메이션이 계속 진행되어야 하므로 false를 반환합니다.
+    return false;
+}
 /** function stageClearScene() : 스테이지 클리어 시 처리 */
 function stageClearScene() {
-    cancelAnimationFrame(interval);
-    clearInterval(timer);
-
     //Author: 황서진 Date: 2023-05-28
     //gameManager 역할 수행
-    InGameBGMArr[InGameBGMIndex].pause();
     gameClearBGM.currentTime = 0;
     gameClearBGM.play();
     $("#content").css({ display: "none" });
