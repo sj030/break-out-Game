@@ -11,7 +11,7 @@ class Ball {
         this.height = 40;
 
         //공의 속도는 speed, angle로 각도 조절
-        this.speed = 5;
+        this.speed = 10;
         this.angle = Math.PI * 0.5;
         this.xdir = this.speed * Math.cos(this.angle);
         this.ydir = this.speed * Math.sin(this.angle);
