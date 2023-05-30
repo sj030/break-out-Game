@@ -153,7 +153,7 @@ class Brick {
         this.brickOffsetTop = 30;
         this.brickOffsetOneSide = 45;
         this.image = new Image();
-        this.image.src = "../webP-main/images/brick_origin.png";
+        this.image.src = "./images/brick_origin.png";
         this.brickWidth =
             (canvas.width - this.brickOffsetOneSide * 2) / 7 -
             this.brickPadding;
