@@ -30,10 +30,32 @@ function gameOverScene() {
     deathSoundBGM.currentTime = 0;
     deathSoundBGM.play();
     // 게임 오버 색상 반전 효과 추가 예정
+    
+    $("#content").fadeOut(100);
+    $("#gameOver").delay(1000).fadeIn(2000);
+    $("#showScore").html("score : "+currentStage.score);
+    $("#resetButton").hover(function(){
+        $(this).css({
+            width : "120px", 
+            height : "48px",
+            margin_top : "0"
+        });
+    },function(){
+        $(this).css({
+            width : "100px",
+            height : "40px"
+        })
+    })
+    $("#resetButton")[0].addEventListener("click", reset);
 
-    $("#content").css({ display: "none" });
-    $("#gameOver").css({ display: "block" });
     return true;
+}
+
+function reset(){
+    $("#gameOver").fadeOut(2000);
+    $("#startPage").delay(3000).fadeIn(2000);
+    startBGM.loop = true;
+    startBGM.play();
 }
 function upKirbyAnimation() {
     // paddle이 상승하는 애니메이션을 구현합니다.

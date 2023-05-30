@@ -54,9 +54,9 @@ gameClearBGM.src = "./sound/gameClear.mp3";
 const deathSoundBGM = new Audio();
 deathSoundBGM.src = "./sound/deathSound.mp3";
 
-//audio for soundEffect
 const ascendingEffect = new Audio();
 ascendingEffect.src = "./sound/soundEffect/ascending.mp3";
+//audio for soundEffect
 const voiceOneEffect = new Audio();
 voiceOneEffect.src = "./sound/soundEffect/voiceOne.mp3";
 const voiceTwoEffect = new Audio();
@@ -82,3 +82,49 @@ airSoundEffect.src = "./sound/soundEffect/extraLife.mp3";
 let isShowedIntroduce = false; // not const
 let isShowedSetting = false;
 let isAscend = false;
+
+$("#bgmon")[0].addEventListener("click", function(){
+    startBGM.muted = false;
+    openingBGM.muted = false;
+    backGroundOneBGM.muted = false;
+    backGroundTwoBGM.muted = false;
+    backGroundThreeBGM.muted = false;
+    TimeRunningBGM.muted = false;
+    gameClearBGM.muted = false;
+    deathSoundBGM.muted = false;
+});
+
+$("#bgmoff")[0].addEventListener("click", function(){
+    startBGM.muted = true;
+    openingBGM.muted = true;
+    backGroundOneBGM.muted = true;
+    backGroundTwoBGM.muted = true;
+    backGroundThreeBGM.muted = true;
+    TimeRunningBGM.muted = true;
+    gameClearBGM.muted = true;
+    deathSoundBGM.muted = true;
+});
+        
+
+$("#soundon")[0].addEventListener('click', function(){
+    ascendingEffect.muted = false;
+    voiceOneEffect.muted = false;
+    voiceTwoEffect.muted = false;
+    voiceThreeEffect.muted = false;
+    fireSoundEffect.muted = false;
+    iceSoundEffect.muted = false;
+    stoneSoundEffect.muted = false;
+    airSoundEffect.muted = false;
+
+});
+
+$("#soundoff")[0].addEventListener('click', function(){
+    ascendingEffect.muted = true;
+    voiceOneEffect.muted = true;
+    voiceTwoEffect.muted = true;
+    voiceThreeEffect.muted = true
+    fireSoundEffect.muted = true;
+    iceSoundEffect.muted = true;
+    stoneSoundEffect.muted = true;
+    airSoundEffect.muted = true;
+});

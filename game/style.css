@@ -16,21 +16,153 @@
 body {
     background-color: lightgray;
     text-align: center;
+    overflow: hidden;
 }
 /* 
 author: 황서진
 */
-div#startPage {
-    display: none;
-    position: relative; /*date: 2023-05-28 수정되었습니다.*/
+#startPage{
     margin: 0 auto;
-    background-color: white;
+    padding-top: 60px;
     width: 1280px;
-    height: 920px;
+    height: 860px;
+    text-align: center;
+    background: url("../images/Kirby_Star_Allies-03.jpg");
 }
+#title_start{
+    margin: 0 auto;
+    width: 500px;
+    height: 210px;
+    background: url("../images/kirby-logo.png");
+}
+
+#title_start:hover, #title_stage:hover, #stagecleartitle:hover, #stageselecttitle:hover{
+    filter: drop-shadow(5px 5px 5px #000);
+
+}
+
+#main_start{
+    margin-left: 500px;
+    margin-top: 100px;
+}
+
+.btn_start {
+    width: 280px;
+    height: 80px;
+    padding: 1.5em 3em;
+    border-color: #4466BF;
+    border-width: thick;
+    border-radius: 50px;
+    margin-bottom: 40px;
+    font-size: 19px;
+    font-family: 'Titan One', cursive;
+    background: #FFE423;
+    color: #37474f;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.btn_start:hover, .stagebtn:hover {
+  -webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+  transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+  border-color: #d76747;
+  color: #ECEFF1;
+  background-color: #d76747;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  -webkit-animation: ani_start_1 0.3s forwards;
+  animation: ani_start_1 0.3s forwards;
+}
+
+.btn_start:hover::before, .stagebtn:hover::before {
+  -webkit-animation: ani_start_2 0.3s 0.3s forwards;
+  animation: ani_start_2 0.3s 0.3s forwards;
+}
+
+@keyframes ani_start_1 {
+  60% {
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  85% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes ani_start_2 {
+  to {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+#stageSelect{
+    display: none;
+    margin: 0 auto;
+    /*padding-top: 60px;*/
+    width: 1280px;
+    height: 860px;
+    text-align: center;
+    background: url("../images/stage_back.jpg");
+}
+
+p#stageselecttitle{
+    font-size: 95px;
+    font-family: 'Titan One', cursive;
+    -webkit-text-stroke: 3px black;
+    color: #FFE423;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+#stage_btn{
+    margin-left: 500px;
+    padding-top: 50px;
+    width: 500px;
+    height: 340px;
+    text-align: center;
+}
+
+.stagebtn{
+    width: 280px;
+    height: 70px;
+    padding: 1.5em 3em;
+    border-color: #4466BF;
+    border-width: thick;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    font-size: 19px;
+    font-family: 'Titan One', cursive;
+    background: #FFE423;
+    color: #37474f;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center; 
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
 div#opening {
     margin: 0 auto;
-    background-color: white;
+    background-color: black;
     display: none;
     width: 1280px;
     height: 920px;
@@ -50,19 +182,116 @@ div#gameOver {
 }
 div#gameClear {
     margin: 0 auto;
-    background-color: white;
+    background: url("../images/gameclear_back.jpg");
     display: none;
     width: 1280px;
     height: 920px;
 }
-#introducePage {
-    display: none;
-    position: absolute;
-    width: 400px;
-    height: 800px;
-    top: 15%;
-    left: 35%;
+
+p#stagecleartitle{
+    font-size: 90px;
+    font-family: 'Titan One', cursive;
+    -webkit-text-stroke: 3px black;
+    color: #FFE423;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 50px;
 }
+
+p#result{
+    font-size: 23px;
+    font-family: 'Titan One', cursive;
+    background-color: white;
+    border-color: yellow;
+    border-radius: 8px;
+    border-width: 10px;
+    width: 450px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#introducePage{
+    display: none;
+}
+.page{
+    margin: 0 auto;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    border-color: black;
+    border-radius: 15px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+
+.settitle, .ruletitle{
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 23px;
+    font-family: 'Titan One', cursive;
+}
+
+.settingbgm, .settingsound, .settingskin{
+    width: 40px;
+    height: 40px;
+    border: 2px solid #bcbcbc;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.on{
+   background-color: #4793d7; 
+   color: white;
+}
+
+.on_2{
+   background-color: #e482b5; 
+   color: white;
+}
+
+.on_3{
+   background-color: #91d745; 
+   color: white;
+}
+
+.off{
+    background-color: none;
+}
+
+#nextButton{
+    margin-top: 50px;
+    width: 100px;
+    height: 60px;
+    border: 2px solid #bcbcbc;
+    cursor: pointer;
+    font-size: 21px;
+    font-family: 'Titan One', cursive;
+    background-color: #FFE423;
+}
+
+#back_rule, #back_set, #next_rule{
+    margin-top: 50px;
+    width: 70px;
+    height: 50px;
+    border: 2px solid #bcbcbc;
+    cursor: pointer;
+    font-size: 21px;
+    font-family: 'Titan One', cursive;
+}
+
+#back_set:hover, #back_rule:hover, #next_rule:hover, #nextButton:hover{
+    background-color: #4793d7;
+    color: white;
+}
+
+/* changed */
 /* Author: 백창현 */
 #stageSelect {
     margin: 0 auto;
@@ -92,7 +321,7 @@ div#top {
     position: relative;
     width: 1280px;
     height: 100px;
-    background-color: black;
+    background-color: #4793d7;
     margin: 0 auto;
     line-height: 100px;
     color: aliceblue;
@@ -106,7 +335,7 @@ canvas {
 div#bottom {
     width: 1280px;
     height: 80px;
-    background-color: black;
+    background-color: #4793d7;
     margin: 0 auto;
 }
 
@@ -137,3 +366,86 @@ div#top #right {
     height: 50px;
     line-height: 50px;
 }
+
+
+/*설명이미지, 게임오버 이미지, 크레딧이미지*/
+#introduceImg{
+    width: 1280px;
+    height: 800px;
+    margin-top: 0;
+}
+#gameoverImg{
+    width: 600px;
+    height: 300px;
+    margin-top: 170px;
+}
+#resetButton{
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+}
+#credit{
+    width: 1280px;
+    height: 800px;
+    margin-top: 0px;
+}
+
+div#gameAllClear{
+    display: none;
+    margin: 0 auto;
+    width: 1280px;
+    height: 920px;
+}
+
+#line1{
+    color: white;
+    display: none;
+}
+#line2{
+    color: white;
+    display: none;
+}
+#line3{
+    color: white;
+    display: none;
+}
+
+#opening1{
+    display: none;
+    width: 1280px;
+    height: 800px;
+    margin-top: 0px;
+}
+
+#opening2{
+    display: none;
+    width: 1280px;
+    height: 800px;
+    margin-top: 0px;
+}
+
+#opening3{
+    display: none;
+    width: 1280px;
+    height: 800px;
+    margin-top: 0px;
+}
+/*#o1 {
+    display: none;
+    margin: 0 auto;
+    width: 1280px;
+    height: 920px;
+}
+#o2 {
+    display: none;
+    margin: 0 auto;
+    width: 1280px;
+    height: 920px;
+}
+#o2 {
+    display: none;
+    margin: 0 auto;
+    width: 1280px;
+    height: 920px;
+}*/
+
