@@ -56,6 +56,8 @@ function goback() {
     $("#gameAllClear").fadeOut(3000, () => {
         $("#startPage").fadeIn(2000);
     });
+    openingBGM.pause();
+    gameClearBGM.pause();
     startBGM.loop = true;
     startBGM.play();
 }
