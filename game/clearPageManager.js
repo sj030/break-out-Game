@@ -18,15 +18,17 @@ function nextStageAddListener() {
     // if((stage.currentStage + 2) == 4){
     //     $("#nextButton").on("click", allClear);
     // }
-    $("#nextButton").on(
-        "click",
-        { stageNum: stage.currentStage + 2, score: currentStage.score },
-        loadStage
-    );
+    $("#nextButton")
+        .off("click")
+        .on(
+            "click",
+            { stageNum: stage.currentStage + 2, score: currentStage.score },
+            loadStage
+        );
 }
 
 function allClear() {
-    $("gameClear").fadeOut(2000, () => {
-        $("gameAllClear").delay(1000).fadeIn(2000);
+    $("#gameClear").fadeOut(2000, () => {
+        $("#gameAllClear").delay(1000).fadeIn(2000);
     });
 }

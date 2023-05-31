@@ -1,5 +1,5 @@
 function loadPageAddListner() {
-    $("#loadButton").on("click", loading);
+    $("#loadButton").off("click").on("click", loading);
 }
 
 function loading() {

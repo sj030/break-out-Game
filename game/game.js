@@ -47,21 +47,22 @@ function gameDraw() {
 
     // 화면 초기화
     //context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = "#cf9c7e";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    let background = new Image();
+    background.src = "./images/bg2.png";
+    context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     // 요소 그리기
     stage.drawStageBrick();
     for (let idx in comboTextArr) {
-        if (comboTextArr[idx]?.time > 50) {
+        if (comboTextArr[idx]?.time > 100) {
             comboTextArr[idx] = null;
             continue;
         }
         comboTextArr[idx]?.draw();
     }
-    paddle.drawPaddle(context);
     ball.run();
     if (healthItem !== null && healthItem.avail) healthItem.drop();
+    paddle.drawPaddle(context);
 
     // 충돌 감지
     collisionDetectionPaddle(ball, paddle);

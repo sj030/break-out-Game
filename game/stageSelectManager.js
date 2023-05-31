@@ -1,11 +1,13 @@
 function stageSelectAddListener() {
-    $("#stage1").on("click", { stageNum: 1, score: 0 }, loadStage);
-    $("#stage2").on("click", { stageNum: 2, score: 0 }, loadStage);
-    $("#stage3").on("click", { stageNum: 3, score: 0 }, loadStage);
-     $("#stageback").on("click", function(){
-        $("#stageSelect").css({ display: "none" });
-        $("#startPage").css({ display: "block" });
-    });
+    $("#stage1").off("click").on("click", { stageNum: 1, score: 0 }, loadStage);
+    $("#stage2").off("click").on("click", { stageNum: 2, score: 0 }, loadStage);
+    $("#stage3").off("click").on("click", { stageNum: 3, score: 0 }, loadStage);
+    $("#stageback")
+        .off("click")
+        .on("click", function () {
+            $("#stageSelect").css({ display: "none" });
+            $("#startPage").css({ display: "block" });
+        });
 }
 
 function loadStage(e) {
@@ -13,12 +15,13 @@ function loadStage(e) {
     clearInterval(timer);
     if (e.data.stageNum > 3) {
         stage = null;
-        $("#content").css({display: "none"});
         InGameBGMArr[InGameBGMIndex].pause();
-        $("#stageSelect").css({ display: "none" });
-        $("#gameClear").css({ display: "none" });
-        $("#gameAllClear").delay(3000).fadeIn(2000);
-        $("#goback").on("click", goback);
+        $("#content").fadeOut(3000, function () {
+            $("#stageSelect").css({ display: "none" });
+            $("#gameClear").css({ display: "none" });
+            $("#gameAllClear").fadeIn(2000);
+        });
+        $("#goback").off("click").on("click", goback);
         return;
     }
     currentStage = new StageStatus(
@@ -41,13 +44,12 @@ function loadStage(e) {
     gameInit();
 }
 
-function goback(){
-    $("#gameAllClear").fadeOut(3000);
-    $("#startPage").delay(3000).fadeIn(2000);
+function goback() {
+    $("#goback").off("click");
+    $("#gameAllClear").fadeOut(3000, () => {
+        $("#startPage").fadeIn(2000);
+    });
+    startPageAddListner();
     startBGM.loop = true;
     startBGM.play();
-}
-
-function changeStage(){
-    
 }

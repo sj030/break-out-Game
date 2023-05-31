@@ -6,7 +6,7 @@ function inPageAddListner() {
     // implement by using event trigger
 
     //2. opening page
-    $("#skipButton")[0].addEventListener("click", openingToStageSelect);
+    $("#skipButton").off("click").on("click", openingToStageSelect);
 
     //3. content page
     //scene.js에서 수행

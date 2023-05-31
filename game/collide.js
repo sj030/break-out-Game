@@ -39,7 +39,7 @@ function collisionDetectionBrick(ball) {
             let brick = stage.currentBrickComposition[i][j];
             if (brick == null || !brick.getLife()) continue;
 
-            // y축 방향 튕김
+            // 가로축에 대해 튕김
             if (
                 ball.x + ball.width + ball.xdir > brick.brickX &&
                 ball.x + ball.xdir < brick.brickX + brick.brickWidth &&
@@ -50,7 +50,7 @@ function collisionDetectionBrick(ball) {
                 brick.destroy();
                 bounceYCount++;
             }
-            // x축 방향 튕김
+            // 세로축에 대해 튕김
             if (
                 ball.x + ball.width > brick.brickX &&
                 ball.x < brick.brickX + brick.brickWidth &&

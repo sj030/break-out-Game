@@ -29,10 +29,23 @@ function gameOverScene() {
     InGameBGMArr[InGameBGMIndex].pause();
     deathSoundBGM.currentTime = 0;
     deathSoundBGM.play();
-    // 게임 오버 색상 반전 효과 추가 예정
+    // 게임 오버 시 배경을 서서히 어둡게 전환
+    let i = 0;
+    function setDark() {
+        if (i == 10) return;
+        context.globalAlpha = 0.1;
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        setTimeout(setDark, 300);
+    }
+    setTimeout(setDark, 300);
 
-    $("#content").fadeOut(100);
-    $("#gameOver").delay(1000).fadeIn(2000);
+    $("#content")
+        .delay(3000)
+        .fadeOut(1000, () => {
+            $("#gameOver").delay(1000).fadeIn(2000);
+        });
+
     $("#showScore").html("score : " + currentStage.score);
     $("#resetButton").hover(
         function () {
@@ -49,14 +62,17 @@ function gameOverScene() {
             });
         }
     );
-    $("#resetButton")[0].addEventListener("click", reset);
+    $("#resetButton").off("click").on("click", reset);
 
     return true;
 }
 
 function reset() {
-    $("#gameOver").fadeOut(2000);
-    $("#startPage").delay(3000).fadeIn(2000);
+    $("#gameOver").fadeOut(2000, () => {
+        $("#startPage").delay(1000).fadeIn(2000);
+        startPageAddListner();
+    });
+
     startBGM.loop = true;
     startBGM.play();
 }

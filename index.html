@@ -3,7 +3,10 @@
     <head>
         <title>웹프 팀플과제</title>
         <link rel="stylesheet" href="./game/style.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+            rel="stylesheet"
+        />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script defer src="./game/constant.js"></script>
@@ -28,7 +31,7 @@
             <button id="loadButton">로드</button>
         </div>
         <div id="startPage">
-            <div id="title_start"></div> 
+            <div id="title_start"></div>
             <div id="main_start">
                 <button class="btn_start" id="startButton">game start</button>
                 <button class="btn_start" id="ruleButton">game rule</button>
@@ -37,40 +40,47 @@
             </div>
             <div id="rulePage" class="page">
                 <div class="ruletitle" id="rule">
-                    Game Rule<br>
-                    <img id="ruleblock" src="./images/gamerule_brick.png">
-                    <input type="button" value="back" id="back_rule">  
-                </div>    
-            </div> 
+                    Game Rule<br />
+                    <img id="ruleblock" src="./images/gamerule_brick.png" />
+                    <input type="button" value="back" id="back_rule" />
+                </div>
+            </div>
             <div id="setPage" class="page">
                 <div id="bgmtitle" class="settitle">
-                    BGM<br>
+                    BGM<br />
                     <button class="settingbgm on" id="bgmon">on</button>
                     <button class="settingbgm off" id="bgmoff">off</button>
                 </div>
                 <div id="soundtitle" class="settitle">
-                   SOUND<br>
+                    SOUND<br />
                     <button class="settingsound on" id="soundon">on</button>
                     <button class="settingsound off" id="soundoff">off</button>
                 </div>
-                <div id="skintitle"class="settitle">
-                    SKIN<br>
+                <div id="skintitle" class="settitle">
+                    SKIN<br />
                     <button class="settingskin on" id="skin1">1</button>
                     <button class="settingskin off" id="skin2">2</button>
                     <button class="settingskin off" id="skin3">3</button>
-                </div>  
-                <input type="button" value="back" id="back_set">   
-            </div> 
+                </div>
+                <input type="button" value="back" id="back_set" />
+            </div>
         </div>
-         
+
         <div id="opening">
             <button id="skipButton">SKIP</button>
-            <h2 id="line1">모험을 하던 커비는 길을 걷고있었다.</h2>
-                <img id = "opening1" src="./images/opening1.png">
-                <h2 id="line2">바로 그때 커비는 길옆 구덩이로 빠지고 만다!</h2>
-                <img id = "opening2" src="./images/opening2.png">
-                <h2 id="line3">과연 커비는 무사히 올라올수 있을것인가!</h2>
-                <img id = "opening3" src="./images/opening3.png">
+            <h2 id="line1">
+                모험을 하던 커비는 맛있는 케이크 생각을 하며 길을 걷고 있었다.
+            </h2>
+            <img id="opening1" src="./images/opening1.png" />
+            <h2 id="line2">
+                바로 그때... 커비는 앞을 보지 못하고 그만 구덩이로 빠지고 만다!
+            </h2>
+            <img id="opening2" src="./images/opening2.png" />
+            <h2 id="line3">
+                구덩이에 있던 것은 공 하나 뿐... 과연 커비는 구덩이에서 무사히
+                올라올 수 있을 것인가!
+            </h2>
+            <img id="opening3" src="./images/opening3.png" />
         </div>
 
         <div id="stageSelect">
@@ -101,11 +111,11 @@
             <canvas id="screen"></canvas>
             <div id="bottom"></div>
         </div>
-        
+
         <div id="gameOver">
-            <img id="gameoverImg" src="./images/gameover.png">
-            <h2 id="showScore">score : </h2>
-            <img id="resetButton" src="./images/reset.png">
+            <img id="gameoverImg" src="./images/gameover.png" />
+            <h2 id="showScore">score :</h2>
+            <img id="resetButton" src="./images/reset.png" />
         </div>
         <div id="gameClear">
             <p id="stagecleartitle">Stage Clear</p>
@@ -115,7 +125,7 @@
         </div>
         <div id="gameAllClear">
             <button id="goback">돌아가기</button>
-            <img id="credit" src="./images/credit.png">
+            <img id="credit" src="./images/credit.png" />
         </div>
     </body>
 </html>

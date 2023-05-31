@@ -6,23 +6,31 @@
 function startPageAddListner() {
     // js파일업로드시 가장 먼저 호출 될 함수입니다.
     // 버튼의 listner들을 추가합니다.
-    $("#ruleButton")[0].addEventListener("click", showIntroduceCanvas);
-    $("#startButton")[0].addEventListener("click", startToOpening);
-    $("#setButton")[0].addEventListener("click", settingToGame);
-    $("#overButton")[0].addEventListener("click", exitGame);
+    $("#ruleButton").off("click").on("click", showIntroduceCanvas);
+    $("#startButton").off("click").on("click", startToOpening);
+    $("#setButton").off("click").on("click", settingToGame);
+    $("#overButton").off("click").on("click", exitGame);
 }
 
 function showIntroduceCanvas() {
     // 화면 중앙에 배치
     $("#main_start").css({ display: "none" });
     $("#rulePage").css({ display: "block" });
-    $("#back_rule")[0].addEventListener("click", function () {
-        $("#rulePage").css({ display: "none" });
-        $("#main_start").css({ display: "block" });
-    });
+    $("#back_rule")
+        .off("click")
+        .on("click", function () {
+            $("#rulePage").css({ display: "none" });
+            $("#main_start").css({ display: "block" });
+        });
 }
 
 function startToOpening() {
+    // 다른 버튼 누르기 방지
+    $("#ruleButton").off("click");
+    $("#startButton").off("click");
+    $("#setButton").off("click");
+    $("#overButton").off("click");
+
     //case1. by using fadeInNOut
     $("#startPage").fadeOut(2000);
     $("#opening").delay(3000).fadeIn(2000);
@@ -54,12 +62,20 @@ function textLineAni() {
 }
 
 function settingToGame() {
+    // 이미 존재하는 이벤트 제거
+    $(".settingbgm").off("click");
+    $(".settingsound").off("click");
+    $(".settingskin").off("click");
+
+    // 화면 보여주기
     $("#main_start").css({ display: "none" });
     $("#setPage").css({ display: "block" });
-    $("#back_set")[0].addEventListener("click", function () {
-        $("#setPage").css({ display: "none" });
-        $("#main_start").css({ display: "block" });
-    });
+    $("#back_set")
+        .off("click")
+        .on("click", function () {
+            $("#setPage").css({ display: "none" });
+            $("#main_start").css({ display: "block" });
+        });
 
     $(".settingbgm")[1].addEventListener("click", function () {
         $(".settingbgm")[0].classList.remove("on");
