@@ -1,15 +1,11 @@
-function loadPageAddListner(){
-	$("#loadButton")[0].addEventListener("click", loading);
+function loadPageAddListner() {
+    $("#loadButton").on("click", loading);
 }
 
-function loading(){
-	$("#loadingPage").css({
-		display:"none"
-	});
-	$("#startPage").css({
-		display:"block"
-	});
-	startBGM.loop = true;
+function loading() {
+    $("#loadingPage").hide();
+    $("#startPage").show();
+    startBGM.loop = true;
     startBGM.play();
 }
 loadPageAddListner();

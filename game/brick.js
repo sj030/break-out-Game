@@ -27,7 +27,7 @@ class stageBrick {
     constructor(ctx, stage) {
         this.ctx = ctx;
         this.currentStage = stage;
-        this.currentBrickComposition = stageOne; //스테이지 블럭 구성 정보를 저장할 배열입니다.
+        this.currentBrickComposition = stageOne.map((v) => [...v]); //스테이지 블럭 구성 정보를 저장할 배열입니다.
     }
 
     init() {

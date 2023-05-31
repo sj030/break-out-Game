@@ -30,38 +30,43 @@ function gameOverScene() {
     deathSoundBGM.currentTime = 0;
     deathSoundBGM.play();
     // 게임 오버 색상 반전 효과 추가 예정
-    
+
     $("#content").fadeOut(100);
     $("#gameOver").delay(1000).fadeIn(2000);
-    $("#showScore").html("score : "+currentStage.score);
-    $("#resetButton").hover(function(){
-        $(this).css({
-            width : "120px", 
-            height : "48px",
-            margin_top : "0"
-        });
-    },function(){
-        $(this).css({
-            width : "100px",
-            height : "40px"
-        })
-    })
+    $("#showScore").html("score : " + currentStage.score);
+    $("#resetButton").hover(
+        function () {
+            $(this).css({
+                width: "120px",
+                height: "48px",
+                margin_top: "0",
+            });
+        },
+        function () {
+            $(this).css({
+                width: "100px",
+                height: "40px",
+            });
+        }
+    );
     $("#resetButton")[0].addEventListener("click", reset);
 
     return true;
 }
 
-function reset(){
+function reset() {
     $("#gameOver").fadeOut(2000);
     $("#startPage").delay(3000).fadeIn(2000);
     startBGM.loop = true;
     startBGM.play();
 }
 function upKirbyAnimation() {
+    clearInterval(timer);
     // paddle이 상승하는 애니메이션을 구현합니다.
     // paddle의 y 좌표를 일정한 간격으로 변경하여 상승 효과를 만듭니다.
     const paddleSpeed = 2; // paddle이 상승하는 속도를 조절합니다.
-    if(!isAscend){ // 첫 호출
+    if (!isAscend) {
+        // 첫 호출
         isAscend = true;
         InGameBGMArr[InGameBGMIndex].pause();
         ascendingEffect.currentTime = 0; // 상승 효과음

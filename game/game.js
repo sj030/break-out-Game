@@ -46,7 +46,9 @@ function gameDraw() {
     if (currentStage.isInitial && initScene()) return; // 시작화면
 
     // 화면 초기화
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    //context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#cf9c7e";
+    context.fillRect(0, 0, canvas.width, canvas.height);
 
     // 요소 그리기
     stage.drawStageBrick();
