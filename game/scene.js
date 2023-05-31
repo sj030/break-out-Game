@@ -21,8 +21,13 @@ function gamePauseScene() {
 /** function ballOutScene() : 공 떨어졌을 때 처리 */
 function ballOutScene() {
     cancelAnimationFrame(interval);
-    if (--currentStage.lifeLeft <= 0) currentStage.isOver = true;
-    updateLife();
+    if (--currentStage.lifeLeft <= 0) {
+        currentStage.isOver = true;
+        updateLife();
+    } else {
+        updateLife();
+        currentStage.isPaused = true;
+    }
     ball.init();
 }
 

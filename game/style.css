@@ -171,6 +171,7 @@ button#goback {
     position: relative;
     top: -250px;
     width: 300px;
+    padding: 30px;
     border-color: #4466bf;
     border-width: thick;
     border-radius: 50px;
