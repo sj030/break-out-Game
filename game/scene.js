@@ -1,6 +1,8 @@
 "use strict";
 // 씬 작성 영역
 
+let dark;
+
 /** function gamePauseScene() : 일시정지 화면 */
 function gamePauseScene() {
     context.font = "20pt PFStarDust";
@@ -37,13 +39,17 @@ function gameOverScene() {
     // 게임 오버 시 배경을 서서히 어둡게 전환
     let i = 0;
     function setDark() {
-        if (i == 10) return;
+        i++;
+        if (i == 6) {
+            clearTimeout(dark);
+            return;
+        }
         context.globalAlpha = 0.1;
         context.fillStyle = "black";
         context.fillRect(0, 0, canvas.width, canvas.height);
         setTimeout(setDark, 300);
     }
-    setTimeout(setDark, 300);
+    dark = setTimeout(setDark, 300);
 
     $("#content")
         .delay(3000)
@@ -73,6 +79,7 @@ function gameOverScene() {
 }
 
 function reset() {
+    clearTimeout(dark);
     $("#gameOver").fadeOut(2000, () => {
         $("#startPage").delay(1000).fadeIn(2000);
         startPageAddListner();

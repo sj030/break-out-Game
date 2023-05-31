@@ -156,7 +156,28 @@ button#nextButton {
     margin-top: 40px;
     margin-bottom: 40px;
     font-size: 19px;
-    font-family: "Titan One", cursive;
+    font-family: "Titan One", "PFStardust", cursive;
+    color: #37474f;
+    background: #ffe423;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button#goback {
+    position: relative;
+    top: -250px;
+    width: 300px;
+    border-color: #4466bf;
+    border-width: thick;
+    border-radius: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-family: "Titan One", "PFStardust", cursive;
     color: #37474f;
     background: #ffe423;
     align-items: center;
@@ -413,11 +434,7 @@ div#top #right {
     height: 300px;
     margin-top: 170px;
 }
-#resetButton {
-    margin-top: 10px;
-    width: 100px;
-    height: 40px;
-}
+
 #credit {
     width: 1280px;
     height: 800px;

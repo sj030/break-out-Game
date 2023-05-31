@@ -48,15 +48,15 @@ function textLineAni() {
         .css({ display: "none" });
 
     $("#line1, #opening1")
-        .delay(3000)
-        .fadeIn(3000)
+        .delay(2000)
+        .fadeIn(6000)
         .fadeOut(3000)
         .delay(300, () => {
             $("#line2, #opening2")
-                .fadeIn(3000)
+                .fadeIn(6000)
                 .fadeOut(3000)
                 .delay(300, () => {
-                    $("#line3, #opening3").delay(300).fadeIn(3000);
+                    $("#line3, #opening3").delay(300).fadeIn(6000);
                 });
         });
 }
