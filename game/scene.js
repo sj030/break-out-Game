@@ -6,6 +6,11 @@ function gamePauseScene() {
     context.font = "20pt PFStarDust";
     context.textAlign = "center";
     context.fillText("Paused", canvas.width / 2, canvas.height / 2);
+    context.fillText(
+        "Press 'Q' to Quit",
+        canvas.width / 2,
+        canvas.height / 2 + 30
+    );
     cancelAnimationFrame(interval);
     clearInterval(timer);
     return true;
@@ -47,7 +52,7 @@ function gameOverScene() {
         });
 
     $("#showScore").html("score : " + currentStage.score);
-    $("#resetButton").hover(
+    /* $("#resetButton").hover(
         function () {
             $(this).css({
                 width: "120px",
@@ -61,7 +66,7 @@ function gameOverScene() {
                 height: "40px",
             });
         }
-    );
+    ); */
     $("#resetButton").off("click").on("click", reset);
 
     return true;

@@ -1,4 +1,6 @@
 function nextStageAddListener() {
+    InGameBGMArr[InGameBGMIndex].currentTime = 0;
+    InGameBGMArr[InGameBGMIndex].pause();
     let resultString =
         "<br><br>Score : " +
         currentStage.score +

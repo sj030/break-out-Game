@@ -128,4 +128,17 @@ function settingToGame() {
 function exitGame() {
     window.close();
 }
+
+function enterHandler(e) {
+    if (e.key === "Enter") {
+        if ($("#opening").css("display") != "block") return;
+        $("#opening #line1, #opening1, #line2, #opening2, #line3, #opening3")
+            .stop(true, true)
+            .css({ display: "none" });
+        openingToStageSelect();
+    }
+}
+
+document.addEventListener("keydown", enterHandler, false);
+
 startPageAddListner();

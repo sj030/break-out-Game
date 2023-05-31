@@ -7,6 +7,11 @@ function stageSelectAddListener() {
         .on("click", function () {
             $("#stageSelect").css({ display: "none" });
             $("#startPage").css({ display: "block" });
+            startPageAddListner();
+            openingBGM.pause();
+            openingBGM.currentTime = 0;
+            startBGM.currentTime = 0;
+            startBGM.play();
         });
 }
 
@@ -37,6 +42,7 @@ function loadStage(e) {
     $("#content").css({ display: "block" });
     // 배경음 시작
     openingBGM.pause();
+    gameClearBGM.pause();
     InGameBGMArr[InGameBGMIndex].currentTime = 0;
     InGameBGMArr[InGameBGMIndex].loop = true;
     InGameBGMArr[InGameBGMIndex].play();
@@ -46,10 +52,10 @@ function loadStage(e) {
 
 function goback() {
     $("#goback").off("click");
+    startPageAddListner();
     $("#gameAllClear").fadeOut(3000, () => {
         $("#startPage").fadeIn(2000);
     });
-    startPageAddListner();
     startBGM.loop = true;
     startBGM.play();
 }

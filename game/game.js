@@ -80,5 +80,16 @@ function keyDownHandler(e) {
             interval = requestAnimationFrame(gameDraw);
             timer = setInterval(changeTime, 1000);
         }
+    } else if (e.key === "q") {
+        if (!currentStage.isPaused) return;
+        stage = null;
+        InGameBGMArr[InGameBGMIndex].pause();
+        $("#content").fadeOut(2000, () => {
+            $("#startPage").fadeIn(2000, () => {
+                startPageAddListner();
+                startBGM.loop = true;
+                startBGM.play();
+            });
+        });
     }
 }

@@ -71,7 +71,9 @@ author: 황서진
 }
 
 .btn_start:hover,
-.stagebtn:hover {
+.stagebtn:hover,
+button#resetButton:hover,
+button#nextButton:hover {
     -webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
     transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
     border-color: #d76747;
@@ -84,7 +86,9 @@ author: 황서진
 }
 
 .btn_start:hover::before,
-.stagebtn:hover::before {
+.stagebtn:hover::before,
+button#resetButton:hover::before,
+button#nextButton:hover::before {
     -webkit-animation: ani_start_2 0.3s 0.3s forwards;
     animation: ani_start_2 0.3s 0.3s forwards;
 }
@@ -141,6 +145,28 @@ p#stageselecttitle {
     text-align: center;
 }
 
+button#resetButton,
+button#nextButton {
+    width: 250px;
+    height: 50px;
+    padding: 1.5em 3em;
+    border-color: #4466bf;
+    border-width: thick;
+    border-radius: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 19px;
+    font-family: "Titan One", cursive;
+    color: #37474f;
+    background: #ffe423;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 .stagebtn {
     width: 280px;
     height: 70px;
@@ -168,6 +194,7 @@ div#opening {
     display: none;
     width: 1280px;
     height: 920px;
+    color: white;
 }
 div#content {
     margin: 0 auto;
@@ -269,7 +296,7 @@ p#result {
     background-color: none;
 }
 
-#nextButton {
+/*#nextButton {
     margin-top: 50px;
     width: 100px;
     height: 60px;
@@ -279,7 +306,7 @@ p#result {
     font-family: "Titan One", cursive;
     background-color: #ffe423;
 }
-
+*/
 #back_rule,
 #back_set,
 #next_rule {
@@ -294,8 +321,7 @@ p#result {
 
 #back_set:hover,
 #back_rule:hover,
-#next_rule:hover,
-#nextButton:hover {
+#next_rule:hover {
     background-color: #4793d7;
     color: white;
 }
