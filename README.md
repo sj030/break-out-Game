@@ -1,6 +1,13 @@
 # webP_ 웹프로그래밍 8팀 팀프로젝트
+건국대학교 23 웹 프로그래밍 과목 - 벽돌깨기 게임
    
-## 1. 주의사항
+## 1. 결과물
+![image](https://github.com/sj030/break-out-Game/assets/127181878/3e04e3d8-38ac-4187-96f7-ab76e8a1fdee)
+![image](https://github.com/sj030/break-out-Game/assets/127181878/48654740-e6d1-4932-862d-674362f2cba9)
+![image](https://github.com/sj030/break-out-Game/assets/127181878/913a8914-80ae-48c9-b525-42649b004c61)
+
+
+## 2. 주의사항
 - 들여쓰기는 4칸 기준입니다.   
   변수명, 함수명은 자바스크립트 기본이 camelCase를 사용해서, 일단 camelCase로 진행합니다.   
   다른 의견 있으시면 카톡으로 해주세요!   
