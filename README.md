@@ -1,5 +1,7 @@
 # webP_ 웹프로그래밍 8팀 팀프로젝트
 건국대학교 23 웹 프로그래밍 과목 - 벽돌깨기 게임
+
+발표 ppt 링크 : https://www.canva.com/design/DAFkffLfcfY/LnXL7K3AEC0K6XL0bVU_ig/view
    
 ## 1. 결과물
 ![image](https://github.com/sj030/break-out-Game/assets/127181878/3e04e3d8-38ac-4187-96f7-ab76e8a1fdee)
